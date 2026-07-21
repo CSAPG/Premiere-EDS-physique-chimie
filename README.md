@@ -1,2 +1,2 @@
-# Premi-re-EDS-physique-chimie
+# Première-EDS-physique-chimie
 Site dédié à mes élèves de premières 
