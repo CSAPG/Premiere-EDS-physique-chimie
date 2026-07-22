@@ -115,6 +115,19 @@
     <!-- ── Panneaux séquences (contenu injecté par pre-panels.js) ── -->
     <div id="premiere-seq-0" class="pre-panel"></div>
     <div id="premiere-seq-1" class="pre-panel"></div>
+    <div id="premiere-seq-2" class="pre-panel"></div>
+    <div id="premiere-seq-3" class="pre-panel"></div>
+    <div id="premiere-seq-4" class="pre-panel"></div>
+    <div id="premiere-seq-5" class="pre-panel"></div>
+    <div id="premiere-seq-6" class="pre-panel"></div>
+    <div id="premiere-seq-7" class="pre-panel"></div>
+    <div id="premiere-seq-8" class="pre-panel"></div>
+    <div id="premiere-seq-9" class="pre-panel"></div>
+    <div id="premiere-seq-10" class="pre-panel"></div>
+    <div id="premiere-seq-11" class="pre-panel"></div>
+    <div id="premiere-seq-12" class="pre-panel"></div>
+    <div id="premiere-seq-13" class="pre-panel"></div>
+    <div id="premiere-seq-14" class="pre-panel"></div>
 
   </main>
 
@@ -133,9 +146,16 @@
     document.addEventListener('DOMContentLoaded', () => {
 
       const CARD_DATA = [
-        { id: 0, num: '01', titre: 'La lumière : images et couleurs', icone: 'lumiere-couleurs', soon: false },
-        { id: 1, num: '02', titre: 'Modèles ondulatoire et particulaire de la lumière', icone: 'modeles-ondulatoire-particulaire', soon: false },
+        { id: 0, num: '00', titre: 'Séquence 00', icone: null, soon: false },
+        { id: 1, num: '01', titre: 'La lumière : images et couleurs', icone: 'lumiere-couleurs', soon: false },
+        { id: 2, num: '02', titre: 'Modèles ondulatoire et particulaire de la lumière', icone: 'modeles-ondulatoire-particulaire', soon: false },
       ];
+
+      // Séquences 03 à 14 : pastilles cliquables, titre provisoire, icône à ajouter
+      for (let n = 3; n <= 14; n++) {
+        const num = n.toString().padStart(2, '0');
+        CARD_DATA.push({ id: n, num: num, titre: 'Séquence ' + num, icone: null, soon: false });
+      }
 
       const grid = document.getElementById('pre-seq-grid');
       grid.innerHTML = CARD_DATA.map(seq => `
