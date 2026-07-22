@@ -146,15 +146,15 @@
     document.addEventListener('DOMContentLoaded', () => {
 
       const CARD_DATA = [
-        { id: 0, num: '00', titre: 'Séquence 00', icone: null, soon: false },
-        { id: 1, num: '01', titre: 'La lumière : images et couleurs', icone: 'lumiere-couleurs', soon: false },
-        { id: 2, num: '02', titre: 'Modèles ondulatoire et particulaire de la lumière', icone: 'modeles-ondulatoire-particulaire', soon: false },
+        { id: 0, num: '00', titre: 'Séquence 00', icone: 'seq00', soon: false },
+        { id: 1, num: '01', titre: 'La lumière : images et couleurs', icone: 'seq01', soon: false },
+        { id: 2, num: '02', titre: 'Modèles ondulatoire et particulaire de la lumière', icone: 'seq02', soon: false },
       ];
 
-      // Séquences 03 à 14 : pastilles cliquables, titre provisoire, icône à ajouter
+      // Séquences 03 à 14 : pastilles cliquables, titre provisoire, icône ajoutée dès réception du fichier
       for (let n = 3; n <= 14; n++) {
         const num = n.toString().padStart(2, '0');
-        CARD_DATA.push({ id: n, num: num, titre: 'Séquence ' + num, icone: null, soon: false });
+        CARD_DATA.push({ id: n, num: num, titre: 'Séquence ' + num, icone: 'seq' + num, soon: false });
       }
 
       const grid = document.getElementById('pre-seq-grid');
