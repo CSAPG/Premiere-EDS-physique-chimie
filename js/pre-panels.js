@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="pre-res-cta">↓</div>
       </a>
       <iframe class="pre-panel-frame"
-        src="sequence01_premiere_lumiere_couleurs.html"
+        src="seq01/sequence01_premiere_lumiere_couleurs.html"
         title="Séquence 01 — La lumière : images et couleurs">
       </iframe>
     `;
