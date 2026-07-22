@@ -31,4 +31,26 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   }
 
+  const panel1 = document.getElementById('premiere-seq-1');
+  if (panel1) {
+    panel1.innerHTML = `
+      <div class="pre-panel-header">
+        <div class="pre-panel-icon">${getIconPre('modeles-ondulatoire-particulaire', 'panel1')}</div>
+        <div>
+          <p class="pre-panel-num">Séquence 02</p>
+          <h2 class="pre-panel-title">Modèles ondulatoire et particulaire de la lumière</h2>
+          <p class="pre-panel-sub">Cours interactif complet — Première Spécialité Physique-Chimie</p>
+        </div>
+      </div>
+      <a class="pre-resource-link" href="seq02/sequence02_modeles_ondulatoire_particulaire.html" target="_blank" style="margin-bottom:16px;">
+        <div class="pre-res-icon">💻</div>
+        <div>
+          <p class="pre-res-label">Cours interactif</p>
+          <p class="pre-res-sub">Version en ligne animée de la Séquence 02</p>
+        </div>
+        <div class="pre-res-cta">↗</div>
+      </a>
+    `;
+  }
+
 });
