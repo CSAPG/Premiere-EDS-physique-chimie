@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (panel0) {
     panel0.innerHTML = `
       <div class="pre-panel-header">
-        <div class="pre-panel-icon"></div>
+        <div class="pre-panel-icon">${getIconPre('seq00', 'panel0')}</div>
         <div>
           <p class="pre-panel-num">Séquence 00</p>
           <h2 class="pre-panel-title">Séquence 00</h2>
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (panel1) {
     panel1.innerHTML = `
       <div class="pre-panel-header">
-        <div class="pre-panel-icon">${getIconPre('lumiere-couleurs', 'panel1')}</div>
+        <div class="pre-panel-icon">${getIconPre('seq01', 'panel1')}</div>
         <div>
           <p class="pre-panel-num">Séquence 01</p>
           <h2 class="pre-panel-title">La lumière : images et couleurs</h2>
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (panel2) {
     panel2.innerHTML = `
       <div class="pre-panel-header">
-        <div class="pre-panel-icon">${getIconPre('modeles-ondulatoire-particulaire', 'panel2')}</div>
+        <div class="pre-panel-icon">${getIconPre('seq02', 'panel2')}</div>
         <div>
           <p class="pre-panel-num">Séquence 02</p>
           <h2 class="pre-panel-title">Modèles ondulatoire et particulaire de la lumière</h2>
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!panel) continue;
     panel.innerHTML = `
       <div class="pre-panel-header">
-        <div class="pre-panel-icon"></div>
+        <div class="pre-panel-icon">${getIconPre('seq' + num, 'panel' + n)}</div>
         <div>
           <p class="pre-panel-num">Séquence ${num}</p>
           <h2 class="pre-panel-title">Séquence ${num}</h2>

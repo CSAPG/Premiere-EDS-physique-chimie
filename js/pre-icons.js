@@ -78,8 +78,8 @@ function iconModelesOndulatoireParticulaire(suffix) {
 }
 
 const PRE_ICONS = {
-  'lumiere-couleurs': iconLumiereCouleurs,
-  'modeles-ondulatoire-particulaire': iconModelesOndulatoireParticulaire
+  'seq01': iconLumiereCouleurs,
+  'seq02': iconModelesOndulatoireParticulaire
 };
 
 function getIconPre(name, suffix) {
