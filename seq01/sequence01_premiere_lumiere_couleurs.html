@@ -848,11 +848,12 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
           <div class="escape-object" id="escapeObject"></div>
         </div>
 
+        <p style="color:#8a93a8;font-size:.78rem;text-align:center;margin-bottom:10px;">① Teste l'objet avec les lampes colorées &nbsp;→&nbsp; ② Choisis ta réponse &nbsp;→&nbsp; ③ Vérifie</p>
+
         <div class="escape-ctrl">
           <button class="escape-btn r" onclick="escapeShine('R')">🔴 Lampe rouge</button>
           <button class="escape-btn g" onclick="escapeShine('G')">🟢 Lampe verte</button>
           <button class="escape-btn b" onclick="escapeShine('B')">🔵 Lampe bleue</button>
-          <button class="escape-btn w" onclick="escapeShine('W')">💡 Lumière blanche (vérifier)</button>
         </div>
 
         <div class="escape-log" id="escapeLog">Il fait nuit noire. Choisis une lampe pour commencer l'enquête…</div>
@@ -868,7 +869,7 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
             <option value="RB">Magenta</option>
             <option value="GB">Cyan</option>
           </select>
-          <button onclick="escapeCheckGuess()">Valider mon hypothèse</button>
+          <button onclick="escapeVerify()">💡 Vérifier avec la lumière blanche</button>
         </div>
 
         <div class="escape-result" id="escapeResult"></div>
@@ -1585,36 +1586,35 @@ function escapeShine(lightKey){
     obj.style.setProperty('--obj-glow', seenInfo.hex);
     log.innerHTML = 'Sous la lampe <b>' + lightInfo.name + '</b> : l\'objet apparaît <b>' + seenInfo.name + '</b> !';
   }
-
-  if(lightKey === 'W'){
-    escapeRevealed = true;
-    obj.classList.add('revealed');
-    var realInfo = ESCAPE_COLORS[escapeSecret];
-    log.innerHTML += '<br>💡 En lumière blanche, l\'objet révèle sa vraie couleur : <b style="color:' + realInfo.hex + '">' + realInfo.name.toUpperCase() + '</b> !';
-    escapeCheckGuess();
-  }
+  return seen;
 }
 
-function escapeCheckGuess(){
+/* Un seul clic : allume la lumière blanche ET vérifie la réponse choisie */
+function escapeVerify(){
   var guess = document.getElementById('escapeGuess').value;
   var res = document.getElementById('escapeResult');
+
   if(guess === '?'){
-    res.className = 'escape-result';
-    res.textContent = 'Choisis une couleur dans la liste avant de valider.';
+    res.className = 'escape-result lose';
+    res.textContent = '⚠ Choisis d\'abord une couleur dans la liste déroulante « Ma déduction », puis clique à nouveau sur ce bouton.';
     return;
   }
-  if(!escapeRevealed){
-    res.className = 'escape-result';
-    res.textContent = '🤔 Hypothèse enregistrée : ' + ESCAPE_COLORS[guess].name + '. Allume maintenant la lumière blanche pour vérifier !';
-    return;
-  }
+
+  escapeShine('W');
+  var obj = document.getElementById('escapeObject');
+  var log = document.getElementById('escapeLog');
+  escapeRevealed = true;
+  obj.classList.add('revealed');
+  var realInfo = ESCAPE_COLORS[escapeSecret];
+  log.innerHTML += '<br>💡 En lumière blanche, l\'objet révèle sa vraie couleur : <b style="color:' + realInfo.hex + '">' + realInfo.name.toUpperCase() + '</b> !';
+
   if(guess === escapeSecret){
     res.className = 'escape-result win';
-    res.textContent = '🏆 Exact ! L\'objet est bien ' + ESCAPE_COLORS[escapeSecret].name + '. Épreuve 2 débloquée ⬇';
+    res.textContent = '🏆 Bravo, exact ! L\'objet est bien ' + realInfo.name + '. Épreuve 2 débloquée ⬇ (fais défiler pour continuer)';
     escapeUnlockStage2();
   } else {
     res.className = 'escape-result lose';
-    res.textContent = '❌ Ce n\'est pas ça. La bonne réponse était ' + ESCAPE_COLORS[escapeSecret].name + '. Réessaie ou reprends depuis "Nouvel objet mystère".';
+    res.textContent = '❌ Ce n\'était pas ça : tu avais choisi ' + ESCAPE_COLORS[guess].name + ', mais l\'objet est ' + realInfo.name + '. Clique sur "🎲 Nouvel objet mystère" en bas pour retenter ta chance.';
   }
 }
 
