@@ -12,6 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="pre-panel-sub">Cours interactif complet — Première Spécialité Physique-Chimie</p>
         </div>
       </div>
+      <a class="pre-resource-link" href="seq01/sequence01_premiere_lumiere_couleurs.html" target="_blank" style="margin-bottom:16px;">
+        <div class="pre-res-icon">💻</div>
+        <div>
+          <p class="pre-res-label">Cours interactif</p>
+          <p class="pre-res-sub">Version en ligne animée de la Séquence 01</p>
+        </div>
+        <div class="pre-res-cta">↗</div>
+      </a>
       <a class="pre-resource-link" href="seq01/sequence01_cours.pdf" target="_blank" style="margin-bottom:16px;">
         <div class="pre-res-icon">📄</div>
         <div>
@@ -20,10 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="pre-res-cta">↓</div>
       </a>
-      <iframe class="pre-panel-frame"
-        src="seq01/sequence01_premiere_lumiere_couleurs.html"
-        title="Séquence 01 — La lumière : images et couleurs">
-      </iframe>
     `;
   }
 
