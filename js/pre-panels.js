@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="pre-panel-sub">Cours interactif complet — Première Spécialité Physique-Chimie</p>
         </div>
       </div>
-      <a class="pre-resource-link" href="sequence01_cours.pdf" target="_blank" style="margin-bottom:16px;">
+      <a class="pre-resource-link" href="seq01/sequence01_cours.pdf" target="_blank" style="margin-bottom:16px;">
         <div class="pre-res-icon">📄</div>
         <div>
           <p class="pre-res-label">Cours en PDF</p>
