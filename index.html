@@ -123,6 +123,7 @@
   <!-- ══════════════════════════════════════
        SCRIPTS
   ══════════════════════════════════════ -->
+  <script src="js/pre-icons.js"></script>
   <script src="js/pre-panels.js"></script>
   <script src="js/navigation.js"></script>
 
@@ -131,14 +132,14 @@
     document.addEventListener('DOMContentLoaded', () => {
 
       const CARD_DATA = [
-        { id: 0, num: '01', titre: 'La lumière : images et couleurs', icone: '💡', soon: false },
+        { id: 0, num: '01', titre: 'La lumière : images et couleurs', icone: 'lumiere-couleurs', soon: false },
       ];
 
       const grid = document.getElementById('pre-seq-grid');
       grid.innerHTML = CARD_DATA.map(seq => `
         <a class="pre-seq-card${seq.soon ? ' pre-seq-soon' : ''}"
            onclick="${seq.soon ? 'return false;' : `showPremiereSeq(${seq.id}); return false;`}" href="#">
-          <div class="pre-seq-icon">${seq.icone}</div>
+          <div class="pre-seq-icon">${getIconPre(seq.icone, 'card' + seq.id)}</div>
           <div class="pre-seq-badge">Séq. ${seq.num}</div>
           <div class="pre-seq-title">${seq.titre}</div>
           ${seq.soon ? '<div class="pre-seq-soon-label">à venir</div>' : ''}
