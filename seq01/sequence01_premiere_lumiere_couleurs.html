@@ -113,7 +113,8 @@ button.cap-toggle:hover{background:#1e4466}
 .escape-step-badge{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:.76rem;font-weight:800;background:rgba(255,255,255,.06);color:#8a93a8;border:1.5px solid rgba(255,255,255,.12)}
 .escape-step-badge.active{background:var(--orange);color:#fff;border-color:var(--orange)}
 .escape-step-badge.done{background:rgba(91,224,138,.18);color:#5be08a;border-color:rgba(91,224,138,.4)}
-.escape-stage{display:none}
+.escape-stage{display:block;margin-bottom:16px;padding-top:10px;border-top:1px dashed rgba(255,255,255,.12)}
+.escape-stage:first-child{border-top:none;padding-top:0}
 .escape-stage.on{display:block;animation:fadeIn .25s ease}
 .escape-locked{text-align:center;color:#6a7386;font-size:.84rem;padding:18px;background:rgba(255,255,255,.03);border-radius:10px;border:1.5px dashed rgba(255,255,255,.15)}
 .escape-mix-mini{display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap;margin:14px 0}
@@ -228,6 +229,8 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
 .escape-guess select{padding:8px 12px;border-radius:7px;border:none;font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem}
 .escape-guess button{border:none;border-radius:8px;padding:9px 18px;font-weight:800;font-size:.84rem;background:var(--orange);color:#fff;cursor:pointer}
 .escape-guess button:hover{background:#c8602a}
+.escape-validate-btn{border:none;border-radius:8px;padding:9px 18px;font-weight:800;font-size:.84rem;background:var(--orange);color:#fff;cursor:pointer}
+.escape-validate-btn:hover{background:#c8602a}
 .escape-result{text-align:center;font-size:.9rem;font-weight:700;min-height:24px;margin-bottom:10px}
 .escape-result.win{color:#5be08a}
 .escape-result.lose{color:#ff8a8a}
@@ -907,7 +910,7 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
             </div>
           </div>
           <div style="text-align:center;">
-            <button class="escape-guess button" style="border:none;" onclick="escapeCheckMix()">Valider le digicode</button>
+            <button class="escape-validate-btn" onclick="escapeCheckMix()">Valider le digicode</button>
           </div>
           <div class="escape-result" id="escapeMixResult"></div>
         </div>
@@ -1541,9 +1544,6 @@ function escapeSetBadges(){
     if(n < escapeStep) el.classList.add('done');
     else if(n === escapeStep) el.classList.add('active');
   });
-  [1,2,3].forEach(function(n){
-    document.getElementById('stage'+n).classList.toggle('on', n === escapeStep);
-  });
 }
 
 /* ── Nouvel objet mystère : réinitialise les 3 épreuves ── */
@@ -1646,9 +1646,6 @@ function escapeUnlockStage2(){
   document.getElementById('escapeTargetLabel').textContent = ESCAPE_COLORS[escapeSecret].name;
   ['emCheckR','emCheckG','emCheckB'].forEach(function(id){ document.getElementById(id).checked = false; });
   escapeMixUpdate();
-  setTimeout(function(){
-    document.getElementById('stage2').scrollIntoView({behavior:'smooth', block:'center'});
-  }, 150);
 }
 var ESCAPE_MIX_NAMES = {
   '':   {hex:'#000000', name:'noir'},
@@ -1711,9 +1708,6 @@ function escapeUnlockStage3(){
     btn.onclick = function(){ escapeCheckComplement(key, btn); };
     grid.appendChild(btn);
   });
-  setTimeout(function(){
-    document.getElementById('stage3').scrollIntoView({behavior:'smooth', block:'center'});
-  }, 150);
 }
 function escapeCheckComplement(key, btn){
   document.querySelectorAll('.escape-comp-btn').forEach(function(b){ b.classList.remove('sel'); });
