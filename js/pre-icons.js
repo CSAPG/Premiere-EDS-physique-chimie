@@ -77,7 +77,39 @@ function iconModelesOndulatoireParticulaire(suffix) {
     </svg>`;
 }
 
+function iconSeq00(suffix) {
+  return `
+    <div style="display:inline-block;position:relative;width:48px;height:72px;">
+      <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;background:radial-gradient(circle, rgba(250,199,117,0.55) 0%, transparent 70%);animation:bulb-glow-pulse-${suffix} 2.6s ease-in-out infinite;"></div>
+      <svg viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:relative;">
+        <style>
+          .bulb-glass-${suffix}{fill:#f1f5f9;stroke:#cbd5e1;stroke-width:2;animation:bulb-glass-blink-${suffix} 2.6s ease-in-out infinite}
+          @keyframes bulb-glass-blink-${suffix}{0%,100%{fill:#f1f5f9;stroke:#cbd5e1}50%{fill:#FFE9A8;stroke:#FAC775}}
+          .bulb-filament-text-${suffix}{font-family:Arial,sans-serif;font-weight:700;font-size:8px;text-anchor:middle;fill:#cbd5e1;animation:bulb-filament-blink-${suffix} 2.6s ease-in-out infinite}
+          @keyframes bulb-filament-blink-${suffix}{0%,100%{fill:#cbd5e1}50%{fill:#e8783a}}
+          .bulb-rays-${suffix}{stroke:#FAC775;stroke-width:3;stroke-linecap:round;opacity:0;animation:bulb-rays-blink-${suffix} 2.6s ease-in-out infinite}
+          @keyframes bulb-rays-blink-${suffix}{0%,35%,100%{opacity:0}50%{opacity:1}}
+          @keyframes bulb-glow-pulse-${suffix}{0%,100%{opacity:.15;transform:translateX(-50%) scale(.85)}50%{opacity:1;transform:translateX(-50%) scale(1.15)}}
+        </style>
+        <g class="bulb-rays-${suffix}">
+          <line x1="30" y1="2" x2="30" y2="8"/>
+          <line x1="6" y1="10" x2="13" y2="16"/>
+          <line x1="54" y1="10" x2="47" y2="16"/>
+          <line x1="0" y1="32" x2="8" y2="32"/>
+          <line x1="60" y1="32" x2="52" y2="32"/>
+        </g>
+        <ellipse class="bulb-glass-${suffix}" cx="30" cy="32" rx="19" ry="25"/>
+        <text class="bulb-filament-text-${suffix}" x="30" y="35">eureka</text>
+        <rect fill="#94a3b8" x="24" y="54" width="12" height="6"/>
+        <rect fill="#64748b" x="23" y="60" width="14" height="4"/>
+        <rect fill="#64748b" x="23" y="65" width="14" height="4"/>
+        <rect fill="#475569" x="24" y="70" width="12" height="6" rx="2"/>
+      </svg>
+    </div>`;
+}
+
 const PRE_ICONS = {
+  'seq00': iconSeq00,
   'seq01': iconLumiereCouleurs,
   'seq02': iconModelesOndulatoireParticulaire
 };
