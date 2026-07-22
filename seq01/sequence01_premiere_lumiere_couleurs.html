@@ -234,6 +234,10 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
 .escape-reset{display:block;margin:0 auto;background:transparent;border:1.5px solid rgba(255,255,255,.25);color:#cfd6e6;border-radius:20px;padding:6px 16px;font-size:.78rem;font-weight:700;cursor:pointer}
 .escape-reset:hover{background:rgba(255,255,255,.08)}
 .escape-score{text-align:center;color:#8a93a8;font-size:.76rem;margin-top:8px}
+.escape-victory{display:none;text-align:center;background:linear-gradient(135deg,#1a3a2a,#0f2a1c);border:2px solid #5be08a;border-radius:12px;padding:20px;margin-top:14px;animation:fadeIn .4s ease}
+.escape-victory.show{display:block}
+.escape-victory h3{color:#5be08a;font-family:'Outfit',sans-serif;font-size:1.1rem;margin-bottom:6px}
+.escape-victory p{color:#cfd6e6;font-size:.86rem}
 
 @media(max-width:600px){
   body{padding:6px}
@@ -879,7 +883,7 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
       <div class="escape-stage" id="stage2">
         <div class="escape-locked" id="stage2locked">🔒 Résous d'abord l'étape 1 pour débloquer le digicode lumineux.</div>
         <div id="stage2content" style="display:none;">
-          <p style="color:#cfd6e6;font-size:.85rem;text-align:center;margin-bottom:6px;">Le digicode s'ouvre uniquement si tu recrées <strong>exactement</strong> la couleur de l'objet en additionnant des lampes.</p>
+          <p style="color:#cfd6e6;font-size:.85rem;text-align:center;margin-bottom:6px;">Le digicode s'ouvre uniquement si tu recrées <strong>exactement</strong> la couleur de l'objet en additionnant des lampes. Coche les lampes jusqu'à ce que « Ton mélange » affiche le même nom que « Cible ».</p>
           <div class="escape-mix-mini">
             <div class="escape-mix-stage-mini">
               <div class="escape-mix-circle-mini emx-r" id="emxR"></div>
@@ -894,6 +898,12 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
             <div style="text-align:center;">
               <div style="color:#8a93a8;font-size:.72rem;margin-bottom:4px;">Cible à recréer</div>
               <div class="escape-swatch-target" id="escapeTargetSwatch"></div>
+              <div id="escapeTargetLabel" style="color:#fff;font-weight:800;font-size:.78rem;margin-top:5px;text-transform:uppercase;">—</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="color:#8a93a8;font-size:.72rem;margin-bottom:4px;">Ton mélange</div>
+              <div class="escape-swatch-target" id="escapeMixSwatch" style="background:#000;"></div>
+              <div id="escapeMixLabel" style="color:#fff;font-weight:800;font-size:.78rem;margin-top:5px;text-transform:uppercase;">NOIR</div>
             </div>
           </div>
           <div style="text-align:center;">
@@ -910,6 +920,10 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
           <p style="color:#cfd6e6;font-size:.85rem;text-align:center;margin-bottom:10px;">La serrure de sortie s'ouvre avec la couleur <strong>complémentaire</strong> de l'objet mystère (celle qui, additionnée à sa couleur, donne du blanc). Clique sur la bonne pastille.</p>
           <div class="escape-comp-grid" id="escapeCompGrid"></div>
           <div class="escape-result" id="escapeCompResult"></div>
+          <div class="escape-victory" id="escapeVictory">
+            <h3>🎉 Évasion réussie !</h3>
+            <p>Tu as résolu les 3 épreuves. Clique sur « 🎲 Nouvel objet mystère » ci-dessous pour rejouer avec un nouvel objet.</p>
+          </div>
         </div>
       </div>
 
@@ -1558,6 +1572,10 @@ function escapeNewObject(){
   document.getElementById('escapeMixResult').textContent = '';
   document.getElementById('escapeCompResult').className = 'escape-result';
   document.getElementById('escapeCompResult').textContent = '';
+  document.getElementById('escapeVictory').classList.remove('show');
+  document.getElementById('escapeCompGrid').innerHTML = '';
+  document.getElementById('badge2').classList.remove('done');
+  document.getElementById('badge3').classList.remove('done');
 }
 
 /* ── Étape 1 : synthèse soustractive ── */
@@ -1625,7 +1643,20 @@ function escapeUnlockStage2(){
   document.getElementById('stage2locked').style.display = 'none';
   document.getElementById('stage2content').style.display = '';
   document.getElementById('escapeTargetSwatch').style.background = ESCAPE_COLORS[escapeSecret].hex;
+  document.getElementById('escapeTargetLabel').textContent = ESCAPE_COLORS[escapeSecret].name;
+  ['emCheckR','emCheckG','emCheckB'].forEach(function(id){ document.getElementById(id).checked = false; });
+  escapeMixUpdate();
 }
+var ESCAPE_MIX_NAMES = {
+  '':   {hex:'#000000', name:'noir'},
+  R:    {hex:'#ff2626', name:'rouge'},
+  G:    {hex:'#20e050', name:'vert'},
+  B:    {hex:'#2050ff', name:'bleu'},
+  RG:   {hex:'#f5e02a', name:'jaune'},
+  RB:   {hex:'#e030d0', name:'magenta'},
+  GB:   {hex:'#20c8d8', name:'cyan'},
+  RGB:  {hex:'#ffffff', name:'blanc'}
+};
 function escapeMixUpdate(){
   var r = document.getElementById('emCheckR').checked;
   var g = document.getElementById('emCheckG').checked;
@@ -1633,6 +1664,12 @@ function escapeMixUpdate(){
   document.getElementById('emxR').classList.toggle('on', r);
   document.getElementById('emxG').classList.toggle('on', g);
   document.getElementById('emxB').classList.toggle('on', b);
+  var made = (r?'R':'')+(g?'G':'')+(b?'B':'');
+  var info = ESCAPE_MIX_NAMES[made];
+  var sw = document.getElementById('escapeMixSwatch');
+  var lbl = document.getElementById('escapeMixLabel');
+  if(sw){ sw.style.background = info.hex; }
+  if(lbl){ lbl.textContent = info.name; lbl.style.color = (made==='' ) ? '#8a93a8' : '#fff'; }
 }
 function escapeCheckMix(){
   var r = document.getElementById('emCheckR').checked;
@@ -1640,13 +1677,18 @@ function escapeCheckMix(){
   var b = document.getElementById('emCheckB').checked;
   var made = (r?'R':'')+(g?'G':'')+(b?'B':'');
   var res = document.getElementById('escapeMixResult');
+  if(made === ''){
+    res.className = 'escape-result lose';
+    res.textContent = '⚠ Coche au moins une lampe avant de valider.';
+    return;
+  }
   if(made === escapeSecret){
     res.className = 'escape-result win';
-    res.textContent = '🏆 Digicode validé ! Synthèse additive réussie. Épreuve 3 débloquée ⬇';
+    res.textContent = '🏆 Digicode validé ! Synthèse additive réussie. Épreuve 3 débloquée ⬇ (fais défiler pour continuer)';
     escapeUnlockStage3();
   } else {
     res.className = 'escape-result lose';
-    res.textContent = '❌ Ce n\'est pas la bonne combinaison de lampes. Regarde bien la couleur cible et réessaie.';
+    res.textContent = '❌ Ce n\'est pas la bonne combinaison de lampes. Compare le nom sous « Ton mélange » à celui sous « Cible » : ils doivent être identiques avant de valider.';
   }
 }
 
@@ -1677,9 +1719,13 @@ function escapeCheckComplement(key, btn){
     res.textContent = '🎉 Bravo, tu t\'es échappé ! ' + ESCAPE_COLORS[escapeSecret].name.charAt(0).toUpperCase() + ESCAPE_COLORS[escapeSecret].name.slice(1) + ' + ' + ESCAPE_COLORS[comp].name + ' = blanc en synthèse additive.';
     escapeSolvedRooms++;
     document.getElementById('escapeScore').textContent = 'Salles réussies : ' + escapeSolvedRooms;
+    document.getElementById('badge3').classList.remove('active');
+    document.getElementById('badge3').classList.add('done');
+    document.getElementById('escapeVictory').classList.add('show');
+    document.querySelectorAll('.escape-comp-btn').forEach(function(b){ b.style.pointerEvents = 'none'; b.style.opacity = (b===btn) ? '1' : '.4'; });
   } else {
     res.className = 'escape-result lose';
-    res.textContent = '❌ Ce n\'est pas la couleur complémentaire de ' + ESCAPE_COLORS[escapeSecret].name + '. Indice : additionnée à sa couleur, elle doit donner du blanc.';
+    res.textContent = '❌ Ce n\'est pas la couleur complémentaire de ' + ESCAPE_COLORS[escapeSecret].name + '. Indice : additionnée à sa couleur, elle doit donner du blanc. Essaie une autre pastille.';
   }
 }
 
