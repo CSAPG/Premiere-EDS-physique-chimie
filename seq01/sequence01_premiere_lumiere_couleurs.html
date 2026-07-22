@@ -1628,7 +1628,7 @@ function escapeVerify(){
 
   if(guess === escapeSecret){
     res.className = 'escape-result win';
-    res.textContent = '🏆 Bravo, exact ! L\'objet est bien ' + realInfo.name + '. Épreuve 2 débloquée ⬇ (fais défiler pour continuer)';
+    res.textContent = '🏆 Bravo, exact ! L\'objet est bien ' + realInfo.name + '. Épreuve 2 débloquée !';
     escapeUnlockStage2();
   } else {
     res.className = 'escape-result lose';
@@ -1646,6 +1646,9 @@ function escapeUnlockStage2(){
   document.getElementById('escapeTargetLabel').textContent = ESCAPE_COLORS[escapeSecret].name;
   ['emCheckR','emCheckG','emCheckB'].forEach(function(id){ document.getElementById(id).checked = false; });
   escapeMixUpdate();
+  setTimeout(function(){
+    document.getElementById('stage2').scrollIntoView({behavior:'smooth', block:'center'});
+  }, 150);
 }
 var ESCAPE_MIX_NAMES = {
   '':   {hex:'#000000', name:'noir'},
@@ -1684,7 +1687,7 @@ function escapeCheckMix(){
   }
   if(made === escapeSecret){
     res.className = 'escape-result win';
-    res.textContent = '🏆 Digicode validé ! Synthèse additive réussie. Épreuve 3 débloquée ⬇ (fais défiler pour continuer)';
+    res.textContent = '🏆 Digicode validé ! Synthèse additive réussie. Épreuve 3 débloquée !';
     escapeUnlockStage3();
   } else {
     res.className = 'escape-result lose';
@@ -1708,6 +1711,9 @@ function escapeUnlockStage3(){
     btn.onclick = function(){ escapeCheckComplement(key, btn); };
     grid.appendChild(btn);
   });
+  setTimeout(function(){
+    document.getElementById('stage3').scrollIntoView({behavior:'smooth', block:'center'});
+  }, 150);
 }
 function escapeCheckComplement(key, btn){
   document.querySelectorAll('.escape-comp-btn').forEach(function(b){ b.classList.remove('sel'); });
