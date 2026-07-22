@@ -50,6 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="pre-res-cta">↗</div>
       </a>
+      <a class="pre-resource-link" href="seq02/sequence02_cours.pdf" target="_blank" style="margin-bottom:16px;">
+        <div class="pre-res-icon">📄</div>
+        <div>
+          <p class="pre-res-label">Cours en PDF</p>
+          <p class="pre-res-sub">Version imprimable de la Séquence 02</p>
+        </div>
+        <div class="pre-res-cta">↓</div>
+      </a>
     `;
   }
 
