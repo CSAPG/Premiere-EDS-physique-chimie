@@ -115,7 +115,10 @@ body { background: #eef2ff; margin: 0; font-family: 'Segoe UI', sans-serif; }
 .pre-seq-card .pre-seq-icon {
   display: flex; justify-content: center; align-items: center;
   min-height: 70px; margin-bottom: 8px;
-  font-size: 2.4rem;
+}
+.pre-seq-card .pre-seq-icon svg {
+  width: 72px; height: auto; border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(45,95,138,0.18);
 }
 .pre-seq-card .pre-seq-badge {
   display: inline-block; background: #4F46E5; color: white;
@@ -142,7 +145,8 @@ body { background: #eef2ff; margin: 0; font-family: 'Segoe UI', sans-serif; }
 .pre-panel-header {
   display: flex; align-items: center; gap: 16px; margin-bottom: 16px;
 }
-.pre-panel-icon { flex-shrink: 0; font-size: 2.4rem; }
+.pre-panel-icon { flex-shrink: 0; width: 96px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(45,95,138,0.18); }
+.pre-panel-icon svg { display: block; width: 100%; height: auto; }
 .pre-panel-num  { font-size: 0.8rem; font-weight: 700; color: #4F46E5; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 2px; }
 .pre-panel-title { font-size: 1.25rem; font-weight: 800; color: #312e81; margin: 0 0 4px; }
 .pre-panel-sub   { font-size: 0.88rem; color: #64748b; margin: 0; }
