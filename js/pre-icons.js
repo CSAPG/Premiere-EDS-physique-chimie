@@ -108,10 +108,60 @@ function iconSeq00(suffix) {
     </div>`;
 }
 
+function iconSeq03(suffix) {
+  return `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 130">
+      <style>
+        .hicon-scene-${suffix}{opacity:0;animation:hiconFade-${suffix} 12s ease-in-out infinite}
+        .hicon-add-${suffix}{animation-delay:0s}
+        .hicon-sub-${suffix}{animation-delay:4s}
+        .hicon-beer-${suffix}{animation-delay:8s}
+        @keyframes hiconFade-${suffix}{
+          0%{opacity:1} 30%{opacity:1} 34%{opacity:0} 96%{opacity:0} 100%{opacity:1}
+        }
+      </style>
+      <g class="hicon-scene-${suffix} hicon-add-${suffix}">
+        <rect width="200" height="130" rx="10" fill="#0a0a0f"/>
+        <circle cx="60" cy="65" r="30" fill="none" stroke="#5B8FB9" stroke-width="2.5"/>
+        <circle cx="60" cy="65" r="3" fill="#E8783A"/>
+        <circle cx="78" cy="50" r="6" fill="#3A8A6E"/>
+        <circle cx="42" cy="80" r="6" fill="#C0392B"/>
+        <circle cx="80" cy="82" r="6" fill="#E8783A"/>
+        <text x="112" y="58" fill="#fff" font-family="DM Mono, monospace" font-size="13" font-weight="700">n = m/M</text>
+        <text x="112" y="76" fill="#9fb3c8" font-family="DM Mono, monospace" font-size="11">mol</text>
+      </g>
+      <g class="hicon-scene-${suffix} hicon-sub-${suffix}">
+        <rect width="200" height="130" rx="10" fill="#0a0a0f"/>
+        <line x1="10" y1="65" x2="70" y2="65" stroke="#f5d76b" stroke-width="3"/>
+        <rect x="72" y="46" width="30" height="38" rx="2" fill="#E8783A" opacity="0.55"/>
+        <line x1="102" y1="65" x2="150" y2="65" stroke="#f5d76b" stroke-width="1.4" opacity="0.6"/>
+        <line x1="152" y1="30" x2="185" y2="20" stroke="#7c3aed" stroke-width="1.6"/>
+        <line x1="152" y1="30" x2="185" y2="32" stroke="#2563eb" stroke-width="1.6"/>
+        <line x1="152" y1="30" x2="185" y2="44" stroke="#22c55e" stroke-width="1.6"/>
+        <line x1="152" y1="30" x2="185" y2="56" stroke="#dc2626" stroke-width="1.6"/>
+        <text x="60" y="100" fill="#fff" font-family="DM Mono, monospace" font-size="13" font-weight="700">A = ε·l·c</text>
+      </g>
+      <g class="hicon-scene-${suffix} hicon-beer-${suffix}">
+        <rect width="200" height="130" rx="10" fill="#0a0a0f"/>
+        <line x1="30" y1="15" x2="30" y2="110" stroke="#5B8FB9" stroke-width="1.5"/>
+        <line x1="30" y1="110" x2="185" y2="110" stroke="#5B8FB9" stroke-width="1.5"/>
+        <line x1="30" y1="110" x2="150" y2="30" stroke="#E8783A" stroke-width="2.5"/>
+        <circle cx="55" cy="94" r="4" fill="#3A8A6E"/>
+        <circle cx="80" cy="78" r="4" fill="#3A8A6E"/>
+        <circle cx="105" cy="62" r="4" fill="#3A8A6E"/>
+        <circle cx="130" cy="46" r="4" fill="#3A8A6E"/>
+        <text x="10" y="20" fill="#9fb3c8" font-family="DM Mono, monospace" font-size="11">A</text>
+        <text x="165" y="123" fill="#9fb3c8" font-family="DM Mono, monospace" font-size="11">C</text>
+        <text x="55" y="20" fill="#fff" font-family="DM Mono, monospace" font-size="12" font-weight="700">A = ε·ℓ·c</text>
+      </g>
+    </svg>`;
+}
+
 const PRE_ICONS = {
   'seq00': iconSeq00,
   'seq01': iconLumiereCouleurs,
-  'seq02': iconModelesOndulatoireParticulaire
+  'seq02': iconModelesOndulatoireParticulaire,
+  'seq03': iconSeq03
 };
 
 function getIconPre(name, suffix) {
