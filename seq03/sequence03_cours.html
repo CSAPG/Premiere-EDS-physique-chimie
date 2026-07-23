@@ -39,14 +39,15 @@ button.cap-toggle:hover{background:#1e4466}
 .header-titles p span{color:var(--orange);font-weight:700}
 .hicon-wrap{flex-shrink:0;width:96px;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(45,95,138,.18)}
 .hicon-wrap svg{display:block;width:100%;height:auto}
-.hicon-scene{opacity:0;animation:hiconFade 8s ease-in-out infinite}
+.hicon-scene{opacity:0;animation:hiconFade 12s ease-in-out infinite}
 .hicon-add{animation-delay:0s}
 .hicon-sub{animation-delay:4s}
+.hicon-beer{animation-delay:8s}
 @keyframes hiconFade{
   0%{opacity:1}
-  45%{opacity:1}
-  50%{opacity:0}
-  95%{opacity:0}
+  30%{opacity:1}
+  34%{opacity:0}
+  96%{opacity:0}
   100%{opacity:1}
 }
 
@@ -312,6 +313,19 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
           <line x1="152" y1="30" x2="185" y2="44" stroke="#22c55e" stroke-width="1.6"/>
           <line x1="152" y1="30" x2="185" y2="56" stroke="#dc2626" stroke-width="1.6"/>
           <text x="60" y="100" fill="#fff" font-family="DM Mono, monospace" font-size="13" font-weight="700">A = ε·l·c</text>
+        </g>
+        <g class="hicon-scene hicon-beer">
+          <rect width="200" height="130" rx="10" fill="#0a0a0f"/>
+          <line x1="30" y1="15" x2="30" y2="110" stroke="#5B8FB9" stroke-width="1.5"/>
+          <line x1="30" y1="110" x2="185" y2="110" stroke="#5B8FB9" stroke-width="1.5"/>
+          <line x1="30" y1="110" x2="150" y2="30" stroke="#E8783A" stroke-width="2.5"/>
+          <circle cx="55" cy="94" r="4" fill="#3A8A6E"/>
+          <circle cx="80" cy="78" r="4" fill="#3A8A6E"/>
+          <circle cx="105" cy="62" r="4" fill="#3A8A6E"/>
+          <circle cx="130" cy="46" r="4" fill="#3A8A6E"/>
+          <text x="10" y="20" fill="#9fb3c8" font-family="DM Mono, monospace" font-size="11">A</text>
+          <text x="165" y="123" fill="#9fb3c8" font-family="DM Mono, monospace" font-size="11">C</text>
+          <text x="55" y="20" fill="#fff" font-family="DM Mono, monospace" font-size="12" font-weight="700">A = ε·ℓ·c</text>
         </g>
       </svg>
     </div>
