@@ -39,15 +39,14 @@ button.cap-toggle:hover{background:#1e4466}
 .header-titles p span{color:var(--orange);font-weight:700}
 .hicon-wrap{flex-shrink:0;width:96px;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(45,95,138,.18)}
 .hicon-wrap svg{display:block;width:100%;height:auto}
-.hicon-scene{opacity:0;animation:hiconFade 12s ease-in-out infinite}
+.hicon-scene{opacity:0;animation:hiconFade 8s ease-in-out infinite}
 .hicon-add{animation-delay:0s}
 .hicon-sub{animation-delay:4s}
-.hicon-beer{animation-delay:8s}
 @keyframes hiconFade{
   0%{opacity:1}
-  30%{opacity:1}
-  34%{opacity:0}
-  96%{opacity:0}
+  45%{opacity:1}
+  50%{opacity:0}
+  95%{opacity:0}
   100%{opacity:1}
 }
 
@@ -81,6 +80,10 @@ button.cap-toggle:hover{background:#1e4466}
 .card ul{padding-left:1.2rem;margin:8px 0}
 .card li{margin-bottom:5px;line-height:1.55;font-size:.88rem}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+@media(max-width:700px){.grid-3{grid-template-columns:1fr}}
+.calcn-btn{background:var(--gris-fond);border:1.5px solid var(--gris-bord);color:var(--texte);padding:8px 16px;border-radius:999px;font-family:'Nunito',sans-serif;font-size:.86rem;font-weight:700;cursor:pointer;transition:all .15s}
+.calcn-btn.active{background:var(--bleu);border-color:var(--bleu);color:#fff}
 @media(max-width:700px){.grid-2{grid-template-columns:1fr}}
 .formula{background:var(--bleu-clair);border:1.5px solid #B8D4EC;border-radius:10px;padding:12px 16px;text-align:center;font-family:'DM Mono',monospace;font-weight:700;color:var(--bleu);margin:12px 0}
 .attention{background:#FFF8E6;border-left:4px solid #cc8800;border-radius:0 8px 8px 0;padding:10px 14px;font-size:.82rem;color:#5a3a00;margin-top:10px;line-height:1.6}
@@ -204,6 +207,22 @@ canvas{display:block;width:100%;border:1px solid #dde4ec;border-radius:6px}
 .exo-fb{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:.85rem;line-height:1.6;display:none}
 .exo-fb.ok{display:block;background:var(--vert-clair);border-left:4px solid var(--vert);color:#1a5a3a}
 .exo-fb.ko{display:block;background:var(--rouge-clair);border-left:4px solid var(--rouge);color:#7a2418}
+.exo-btn.secondary{background:transparent;color:var(--bleu);border:1.5px solid var(--bleu)}
+.exo-btn.secondary:hover{background:var(--bleu-clair)}
+.exo-btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.exo-box .accord-btn{margin:12px 0 0;font-size:.82rem;padding:9px 14px}
+.exo-box .accord-body{font-size:.85rem}
+.exo-formula-choice{margin:8px 0 2px;font-size:.83rem;color:var(--texte-leger)}
+.exo-formula-choice em{display:block;margin-bottom:4px;font-style:normal;font-weight:700;color:var(--texte)}
+.exo-formula-choice label{display:inline-flex;align-items:center;gap:5px;margin:0 14px 6px 0;font-family:'DM Mono',monospace;font-size:.82rem;cursor:pointer;color:var(--texte)}
+.dnd-intro{font-size:.85rem;color:var(--texte-leger);margin-bottom:6px}
+.dnd-zone{min-height:44px;border:2px dashed var(--gris-bord);border-radius:10px;padding:10px 14px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:6px 0 10px;background:#FAFCFE}
+.dnd-zone-empty-msg{color:var(--texte-leger);font-family:'Nunito',sans-serif;font-size:.82rem;font-style:italic}
+.dnd-zone-tile{background:var(--vert-clair);border:1.5px solid var(--vert);color:#1a5a3a;border-radius:8px;padding:6px 12px;font-size:.84rem;font-family:'DM Mono',monospace;font-weight:700;cursor:pointer}
+.dnd-plus{color:var(--texte-leger);font-weight:700;font-family:'Nunito',sans-serif}
+.dnd-bank{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 4px}
+.dnd-tile{background:var(--bleu-clair);border:1.5px solid #B8D4EC;color:var(--bleu);border-radius:8px;padding:6px 12px;font-family:'DM Mono',monospace;font-weight:700;font-size:.84rem;cursor:pointer;user-select:none}
+.dnd-tile.placed{opacity:.3;cursor:default;pointer-events:none}
 table.tex{width:100%;border-collapse:collapse;font-size:.84rem;margin-top:8px}
 table.tex th{background:var(--bleu-clair);color:var(--bleu);font-weight:700;padding:8px;text-align:left;border:1px solid var(--gris-bord)}
 table.tex td{padding:8px;border:1px solid var(--gris-bord);vertical-align:middle}
@@ -314,19 +333,6 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
           <line x1="152" y1="30" x2="185" y2="56" stroke="#dc2626" stroke-width="1.6"/>
           <text x="60" y="100" fill="#fff" font-family="DM Mono, monospace" font-size="13" font-weight="700">A = ε·l·c</text>
         </g>
-        <g class="hicon-scene hicon-beer">
-          <rect width="200" height="130" rx="10" fill="#0a0a0f"/>
-          <line x1="30" y1="15" x2="30" y2="110" stroke="#5B8FB9" stroke-width="1.5"/>
-          <line x1="30" y1="110" x2="185" y2="110" stroke="#5B8FB9" stroke-width="1.5"/>
-          <line x1="30" y1="110" x2="150" y2="30" stroke="#E8783A" stroke-width="2.5"/>
-          <circle cx="55" cy="94" r="4" fill="#3A8A6E"/>
-          <circle cx="80" cy="78" r="4" fill="#3A8A6E"/>
-          <circle cx="105" cy="62" r="4" fill="#3A8A6E"/>
-          <circle cx="130" cy="46" r="4" fill="#3A8A6E"/>
-          <text x="10" y="20" fill="#9fb3c8" font-family="DM Mono, monospace" font-size="11">A</text>
-          <text x="165" y="123" fill="#9fb3c8" font-family="DM Mono, monospace" font-size="11">C</text>
-          <text x="55" y="20" fill="#fff" font-family="DM Mono, monospace" font-size="12" font-weight="700">A = ε·ℓ·c</text>
-        </g>
       </svg>
     </div>
   </div>
@@ -432,7 +438,7 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
 
   <div class="sub-tab-content" id="grandeurs-sub-1">
     <div class="section-title"><span class="icon">🧮</span>Calculer des masses molaires</div>
-    <p style="font-size:.86rem;color:var(--texte-leger);margin-bottom:14px;">Données (masses molaires atomiques en g·mol⁻¹) : H = 1 ; C = 12 ; N = 14 ; O = 16 ; S = 32 ; Mn = 55 ; I = 127.</p>
+    <p style="font-size:.86rem;color:var(--texte-leger);margin-bottom:14px;">Données (masses molaires atomiques) : M(H) = 1 ; M(C) = 12 ; M(N) = 14 ; M(O) = 16 ; M(S) = 32 ; M(Mn) = 55 ; M(I) = 127 g·mol⁻¹.</p>
     <div id="molarExosBox"></div>
 
     <div class="section-title"><span class="icon">📝</span>QCM — grandeurs molaires</div>
@@ -451,7 +457,19 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
   </nav>
 
   <div class="sub-tab-content active" id="quantite-sub-0">
-    <div class="intro-box">Trois situations, trois relations : échantillon solide (masse), échantillon gazeux (volume), espèce dissoute (concentration). Le bon réflexe consiste à identifier l'état physique de l'espèce étudiée avant de choisir la relation.</div>
+
+    <div class="section-title"><span class="icon">🔢</span>a. Quantité de matière et nombre d'entités</div>
+    <div class="card">
+      <div class="card-title"><span class="icon" style="background:var(--violet-clair);color:var(--violet);">n</span>La relation de départ</div>
+      <p>La quantité de matière n est la grandeur qui permet de <strong>compter les entités</strong> (atomes, molécules, ions) à l'échelle du laboratoire, en les regroupant par paquets d'une mole. Une mole correspond à N<sub>A</sub> = 6,02×10²³ entités (constante d'Avogadro). Si un échantillon contient N entités, sa quantité de matière est :</p>
+      <div class="formula">n = N / N<sub>A</sub></div>
+      <p style="font-size:.86rem;">n : quantité de matière (mol) &nbsp;·&nbsp; N : nombre d'entités (sans unité) &nbsp;·&nbsp; N<sub>A</sub> = 6,02×10²³ mol⁻¹</p>
+      <p><strong>Exemple :</strong> un échantillon de fer contient N = 3,01×10²³ atomes. Sa quantité de matière vaut n = N/N<sub>A</sub> = 3,01×10²³ / 6,02×10²³ = 0,500 mol.</p>
+      <div class="attention">Cette relation est la <strong>définition</strong> même de la quantité de matière. Les trois relations ci-dessous (n = m/M, n = V/V<sub>m</sub>, n = C×V) n'en sont que des conséquences pratiques, utiles car on ne compte jamais directement les entités une par une au laboratoire.</div>
+    </div>
+
+    <div class="section-title" style="margin-top:26px;"><span class="icon">🧭</span>b. Trois situations, trois relations pratiques</div>
+    <div class="intro-box">Échantillon solide (masse), échantillon gazeux (volume), espèce dissoute (concentration). Le bon réflexe consiste à identifier l'état physique de l'espèce étudiée avant de choisir la relation.</div>
 
     <div class="grid-2">
       <div class="bilan-card">
@@ -471,15 +489,98 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
       <p style="font-size:.84rem;">C : concentration molaire de la solution (mol·L⁻¹)<br>V : volume de solution prélevé (L)</p>
     </div>
 
-    <div class="section-title" style="margin-top:26px;"><span class="icon">📊</span>Cas particulier — masse volumique</div>
+    <div class="card" style="margin-top:16px;background:var(--gris-fond);">
+      <div class="card-title"><span class="icon" style="background:var(--bleu-clair);color:var(--bleu);">🔎</span>Comment reconnaître la bonne relation dans un énoncé ?</div>
+      <ul>
+        <li>L'énoncé parle d'un <strong>solide, d'une poudre, d'un métal, d'un échantillon pesé</strong> (une masse en g est donnée ou demandée) → l'espèce est solide, on utilise <strong>n = m/M</strong>.</li>
+        <li>L'énoncé parle d'un <strong>gaz, d'un volume de gaz</strong>, souvent « dans les conditions normales de température et de pression » (un volume en L est donné ou demandé) → l'espèce est gazeuse, on utilise <strong>n = V/V<sub>m</sub></strong>.</li>
+        <li>L'énoncé parle d'une <strong>solution, d'une concentration molaire, d'un volume prélevé ou versé</strong> à la burette, à la pipette ou dans une fiole → l'espèce est dissoute, on utilise <strong>n = C×V</strong>.</li>
+        <li>L'énoncé donne directement un <strong>nombre d'atomes, de molécules ou d'ions (N)</strong> → on revient à la relation de définition, <strong>n = N/N<sub>A</sub></strong>.</li>
+      </ul>
+      <div class="attention">Réflexe à adopter avant tout calcul : « Dans quel état physique se trouve l'espèce dont on me donne (ou dont on me demande) la quantité de matière ? ». C'est cette question, et elle seule, qui indique quelle relation utiliser. Dans un exercice qui enchaîne deux relations (comme en e. ci-dessous), on se pose la question à <strong>chaque étape</strong>, car l'état physique de l'espèce peut changer (par exemple : solide, puis dissoute dans une solution).</div>
+    </div>
+
+    <div class="section-title" style="margin-top:26px;"><span class="icon">🧩</span>Exercices d'application immédiate (niveau Seconde)</div>
+    <div class="intro-box">Les deux exercices suivants portent sur le <strong>même objet</strong>, étudié par deux méthodes différentes : comptage des entités (n = N/N<sub>A</sub>) et pesée (n = m/M). Tu dois retrouver exactement la même quantité de matière dans les deux cas : c'est la preuve que n est une grandeur physique unique, qui ne dépend pas de la méthode utilisée pour l'obtenir. Rédige chaque réponse en trois temps : <strong>formule</strong>, puis <strong>calcul</strong>, puis <strong>résultat</strong> avec le bon nombre de chiffres significatifs et son unité.</div>
+
+    <div class="exo-box">
+      <h5>Exercice 1 — Une bague en or, comptée en atomes<span class="diff-badge d1">Facile</span></h5>
+      <p style="font-size:.86rem;margin-bottom:8px;">Une bague en or pur contient N = 3,01×10²² atomes d'or. On donne la constante d'Avogadro N<sub>A</sub> = 6,02×10²³ mol⁻¹. Calculer la quantité de matière d'or n(Au) contenue dans cette bague.</p>
+      <div class="exo-field">n(Au) = <input type="number" step="0.0001" id="exoGoldN" placeholder="?"> mol</div>
+      <button class="exo-btn" onclick="checkGoldN()">Vérifier</button>
+      <div class="exo-fb" id="fbGoldN"></div>
+    </div>
+
+    <div class="exo-box">
+      <h5>Exercice 2 — La même bague, pesée sur une balance<span class="diff-badge d1">Facile</span></h5>
+      <p style="font-size:.86rem;margin-bottom:8px;">Cette même bague en or a une masse m = 9,85 g. On donne la masse molaire M(Au) = 197 g·mol⁻¹. Calculer la quantité de matière d'or n(Au) à partir de cette masse, et vérifie que tu retrouves bien le résultat de l'exercice 1.</p>
+      <div class="exo-field">n(Au) = <input type="number" step="0.0001" id="exoGoldM" placeholder="?"> mol</div>
+      <button class="exo-btn" onclick="checkGoldM()">Vérifier</button>
+      <div class="exo-fb" id="fbGoldM"></div>
+    </div>
+
+    <div class="section-title"><span class="icon">📊</span>c. Cas particulier — masse volumique</div>
     <div class="card">
       <p>Pour une espèce <strong>liquide</strong>, on accède souvent à la masse par la masse volumique ρ : <strong>m = ρ × V</strong>. On calcule ensuite n = m/M comme pour un solide.</p>
+    </div>
+
+    <div class="section-title"><span class="icon">➕</span>d. Mélange — quantités de matière qui s'additionnent</div>
+    <div class="card">
+      <p>Dans un mélange de plusieurs espèces (ou une solution contenant plusieurs solutés), la quantité de matière totale est la <strong>somme</strong> des quantités de matière de chaque constituant : n<sub>totale</sub> = n₁ + n₂ + ... Chaque espèce garde sa propre quantité de matière, calculée avec la relation adaptée à son état physique.</p>
+    </div>
+
+    <div class="section-title" style="margin-top:26px;"><span class="icon">🔗</span>e. Exemple résolu — enchaîner deux relations</div>
+    <div class="card">
+      <div class="card-title"><span class="icon" style="background:var(--violet-clair);color:var(--violet);">💡</span>Énoncé</div>
+      <p>On dissout entièrement 2,10 g d'hydrogénocarbonate de sodium NaHCO₃ solide (M = 84 g·mol⁻¹) dans de l'eau, puis on complète jusqu'à 250 mL de solution. Quelle est la concentration molaire C de la solution obtenue ?</p>
+      <p style="font-size:.86rem;"><strong>Étape 1 — l'espèce est d'abord solide :</strong> on calcule la quantité de matière dissoute avec n = m/M.</p>
+      <div class="formula">n = m / M = 2,10 / 84 = 0,0250 mol</div>
+      <p style="font-size:.86rem;"><strong>Étape 2 — cette même quantité de matière</strong> se retrouve entièrement dans les 250 mL de solution obtenue : on utilise maintenant n = C × V, dans l'autre sens.</p>
+      <div class="formula">C = n / V = 0,0250 / 0,250 = 0,100 mol·L⁻¹</div>
+      <div class="attention">Le point clé : la quantité de matière <strong>ne change pas</strong> quand on passe du solide pesé à la solution — c'est elle qui relie les deux relations entre elles. Beaucoup d'exercices de ce chapitre demandent d'enchaîner ainsi deux relations plutôt qu'une seule.</div>
+    </div>
+
+    <div class="section-title"><span class="icon">🧮</span>Calculatrice guidée — calculer n</div>
+    <p style="font-size:.86rem;color:var(--texte-leger);">Choisis l'état physique de l'espèce étudiée (ou le dénombrement d'entités), renseigne la grandeur mesurée, et observe quelle relation s'applique.</p>
+    <div class="card">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+        <button class="calcn-btn active" id="calcnBtn-solide" onclick="calcnSetMode('solide')">🧊 Solide</button>
+        <button class="calcn-btn" id="calcnBtn-gaz" onclick="calcnSetMode('gaz')">🎈 Gaz</button>
+        <button class="calcn-btn" id="calcnBtn-dissous" onclick="calcnSetMode('dissous')">💧 Dissous</button>
+        <button class="calcn-btn" id="calcnBtn-entites" onclick="calcnSetMode('entites')">🔢 Entités</button>
+      </div>
+      <div id="calcn-solide" class="calcn-panel">
+        <div class="exo-field">Masse m = <input type="number" step="0.01" id="calcnM" value="10" oninput="calcnUpdate()"> g</div>
+        <div class="exo-field">Masse molaire M = <input type="number" step="0.1" id="calcnMM" value="58.5" oninput="calcnUpdate()"> g·mol⁻¹</div>
+        <div class="formula" style="margin-top:10px;">n = m / M = <span id="calcnSolideRes">—</span></div>
+      </div>
+      <div id="calcn-gaz" class="calcn-panel" style="display:none;">
+        <div class="exo-field">Volume V = <input type="number" step="0.1" id="calcnV" value="5" oninput="calcnUpdate()"> L</div>
+        <div class="exo-field">Volume molaire V<sub>m</sub> = <input type="number" step="0.1" id="calcnVm" value="24" oninput="calcnUpdate()"> L·mol⁻¹</div>
+        <div class="formula" style="margin-top:10px;">n = V / V<sub>m</sub> = <span id="calcnGazRes">—</span></div>
+      </div>
+      <div id="calcn-dissous" class="calcn-panel" style="display:none;">
+        <div class="exo-field">Concentration C = <input type="number" step="0.001" id="calcnC" value="0.1" oninput="calcnUpdate()"> mol·L⁻¹</div>
+        <div class="exo-field">Volume prélevé V = <input type="number" step="1" id="calcnVsol" value="200" oninput="calcnUpdate()"> mL</div>
+        <div class="formula" style="margin-top:10px;">n = C × V = <span id="calcnDissousRes">—</span></div>
+      </div>
+      <div id="calcn-entites" class="calcn-panel" style="display:none;">
+        <div class="exo-field">Nombre d'entités N = <input type="text" id="calcnN" value="3.01e23" oninput="calcnUpdate()"></div>
+        <p style="font-size:.78rem;color:var(--texte-leger);margin:-4px 0 8px;">Saisis un nombre en notation scientifique, ex. 3.01e23 pour 3,01×10²³.</p>
+        <div class="formula" style="margin-top:10px;">n = N / N<sub>A</sub> = <span id="calcnEntitesRes">—</span></div>
+      </div>
     </div>
   </div><!-- /quantite-sub-0 -->
 
   <div class="sub-tab-content" id="quantite-sub-1">
     <div class="section-title"><span class="icon">📝</span>Applications (d'après le TP « Composition d'un système »)</div>
+    <p style="font-size:.86rem;color:var(--texte-leger);margin-bottom:14px;">Pour chaque situation, identifie d'abord l'état physique de l'espèce (solide, gaz, dissoute) ou la donnée fournie (nombre d'entités), puis choisis la relation adaptée. Certaines applications demandent d'enchaîner deux relations.</p>
     <div id="appExosBox"></div>
+
+    <div class="section-title"><span class="icon">📝</span>QCM — quantité de matière</div>
+    <div class="exo-box">
+      <div id="qcmQM"></div>
+    </div>
   </div><!-- /quantite-sub-1 -->
 
   <div class="sub-tab-content" id="quantite-sub-2">
@@ -826,9 +927,11 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
       <div class="bilan-card">
         <h4>🧮 Quantité de matière</h4>
         <ul class="ke-list">
+          <li>n = N / N<sub>A</sub> (dénombrement d'entités)</li>
           <li>n = m / M (solide)</li>
           <li>n = V / V<sub>m</sub> (gaz)</li>
           <li>n = C × V (espèce dissoute)</li>
+          <li>Mélange : n<sub>totale</sub> = n₁ + n₂ + ...</li>
           <li>Dilution : C<sub>mère</sub>×V<sub>mère</sub> = C<sub>fille</sub>×V<sub>fille</sub> ; F = C<sub>mère</sub>/C<sub>fille</sub> = V<sub>fille</sub>/V<sub>mère</sub></li>
         </ul>
       </div>
@@ -876,7 +979,6 @@ table.tex select{width:100%;padding:5px;border-radius:5px;border:1px solid var(-
       <li><a href="https://www.hatier-clic.fr/pc2084" target="_blank">🔗 Rappel de Seconde — Prérequis sur la mole (Hatier Clic)</a></li>
       <li><a href="https://iupac.org/new-definition-mole-arrived/" target="_blank">🔗 La nouvelle définition de la mole — IUPAC</a></li>
       <li><a href="https://view.genially.com/6a326a04285f20a29c6e84b0" target="_blank">🔗 Animation interactive — rappels sur la mole (Genially)</a></li>
-      <li><a href="https://www.pearltrees.com/poiraultgauvin.cynthia/exercices-jeux-quiz/id104933822/item801435685" target="_blank">🧪 Jeu — Reconnaître la verrerie de laboratoire</a></li>
     </ul>
     <div class="card" style="margin-top:14px;">
       <div class="card-title"><span class="icon" style="background:var(--gris-fond);color:var(--texte-leger);">📘</span>Exercices du manuel</div>
@@ -951,25 +1053,130 @@ function molUpdate(){
 }
 molUpdate();
 
+/* ═══ Calculatrice guidée — calculer n ═══ */
+function calcnSetMode(mode){
+  ['solide','gaz','dissous','entites'].forEach(function(m){
+    document.getElementById('calcn-'+m).style.display = (m===mode) ? '' : 'none';
+    document.getElementById('calcnBtn-'+m).classList.toggle('active', m===mode);
+  });
+  calcnUpdate();
+}
+function calcnUpdate(){
+  var m = parseFloat(document.getElementById('calcnM').value);
+  var M = parseFloat(document.getElementById('calcnMM').value);
+  document.getElementById('calcnSolideRes').textContent = (!isNaN(m) && !isNaN(M) && M>0) ? frNum(m/M,4)+' mol' : '—';
+  var V = parseFloat(document.getElementById('calcnV').value);
+  var Vm = parseFloat(document.getElementById('calcnVm').value);
+  document.getElementById('calcnGazRes').textContent = (!isNaN(V) && !isNaN(Vm) && Vm>0) ? frNum(V/Vm,4)+' mol' : '—';
+  var C = parseFloat(document.getElementById('calcnC').value);
+  var Vsol = parseFloat(document.getElementById('calcnVsol').value);
+  document.getElementById('calcnDissousRes').textContent = (!isNaN(C) && !isNaN(Vsol)) ? frNum(C*Vsol/1000,4)+' mol' : '—';
+  var N = parseFloat(document.getElementById('calcnN').value);
+  var NA = 6.02e23;
+  document.getElementById('calcnEntitesRes').textContent = (!isNaN(N) && N>=0) ? frExp(N/NA,3)+' mol' : '—';
+}
+calcnUpdate();
+
 /* ═══ Exercices guidés — masses molaires ═══ */
 var MOLAR_DATA = [
-  { id:'m0', label:'Diiode I₂', ans:254, tol:2, expl:'M(I₂) = 2 × M(I) = 2 × 127 = 254 g·mol⁻¹.' },
-  { id:'m1', label:'Ammoniac NH₃', ans:17, tol:1, expl:'M(NH₃) = 14 + 3×1 = 17 g·mol⁻¹.' },
-  { id:'m2', label:'Acide sulfurique H₂SO₄', ans:98, tol:1, expl:'M(H₂SO₄) = 2×1 + 32 + 4×16 = 98 g·mol⁻¹.' },
-  { id:'m3', label:'Polluant NMOR (C₄H₈N₂O₂)', ans:116, tol:1, expl:'M(NMOR) = 4×12 + 8×1 + 2×14 + 2×16 = 48+8+28+32 = 116 g·mol⁻¹.' },
-  { id:'m4', label:'Ion ammonium NH₄⁺', ans:18, tol:1, expl:'M(NH₄⁺) = 14 + 4×1 = 18 g·mol⁻¹ (la charge ne modifie pas la masse de façon notable).' },
-  { id:'m5', label:'Ion permanganate MnO₄⁻', ans:119, tol:1, expl:'M(MnO₄⁻) = 55 + 4×16 = 119 g·mol⁻¹.' }
+  { id:'m0', type:'simple', label:'Diiode I₂', formula:'M(I₂) = 2 × M(I)', calc:'2 × 127', ans:254, tol:2,
+    expl:'M(I₂) = 2 × M(I) = 2 × 127 = 254 g·mol⁻¹.' },
+  { id:'m1', type:'dnd', label:'Ammoniac NH₃', formulaLabel:'M(NH₃)',
+    terms:[{el:'N',mult:1,M:14},{el:'H',mult:3,M:1}], decoys:['O','S'], ans:17,
+    expl:'M(NH₃) = M(N) + 3×M(H) = 14 + 3×1 = 17 g·mol⁻¹.' },
+  { id:'m2', type:'dnd', label:'Acide sulfurique H₂SO₄', formulaLabel:'M(H₂SO₄)',
+    terms:[{el:'H',mult:2,M:1},{el:'S',mult:1,M:32},{el:'O',mult:4,M:16}], decoys:['N','I'], ans:98,
+    expl:'M(H₂SO₄) = 2×M(H) + M(S) + 4×M(O) = 2×1 + 32 + 4×16 = 98 g·mol⁻¹.' },
+  { id:'m3', type:'dnd', label:'Polluant NMOR (C₄H₈N₂O₂)', formulaLabel:'M(NMOR)',
+    terms:[{el:'C',mult:4,M:12},{el:'H',mult:8,M:1},{el:'N',mult:2,M:14},{el:'O',mult:2,M:16}], decoys:['S','Mn'], ans:116,
+    expl:'M(NMOR) = 4×M(C) + 8×M(H) + 2×M(N) + 2×M(O) = 48 + 8 + 28 + 32 = 116 g·mol⁻¹.' },
+  { id:'m4', type:'dnd', label:'Ion ammonium NH₄⁺', formulaLabel:'M(NH₄⁺)',
+    terms:[{el:'N',mult:1,M:14},{el:'H',mult:4,M:1}], decoys:['C','I'], ans:18,
+    expl:'M(NH₄⁺) = M(N) + 4×M(H) = 14 + 4×1 = 18 g·mol⁻¹ (la charge ne modifie pas la masse de façon notable).' },
+  { id:'m5', type:'dnd', label:'Ion permanganate MnO₄⁻', formulaLabel:'M(MnO₄⁻)',
+    terms:[{el:'Mn',mult:1,M:55},{el:'O',mult:4,M:16}], decoys:['C','N'], ans:119,
+    expl:'M(MnO₄⁻) = M(Mn) + 4×M(O) = 55 + 4×16 = 119 g·mol⁻¹.' }
 ];
+var dndState = {};
+function molarCorrectionHtml(item){
+  if(item.type==='simple'){
+    return '<p><strong>Formule :</strong> '+item.formula+'<br><strong>Calcul :</strong> M = '+item.calc+'<br><strong>Résultat :</strong> M = '+item.ans+' g·mol⁻¹</p>';
+  }
+  var fTerms = item.terms.map(function(t){ return (t.mult>1?t.mult+'×':'')+'M('+t.el+')'; }).join(' + ');
+  var cTerms = item.terms.map(function(t){ return (t.mult>1?t.mult+'×':'')+t.M; }).join(' + ');
+  return '<p><strong>Formule :</strong> '+item.formulaLabel+' = '+fTerms+'<br><strong>Calcul :</strong> = '+cTerms+'<br><strong>Résultat :</strong> '+item.formulaLabel+' = '+item.ans+' g·mol⁻¹</p>';
+}
 function renderMolarExos(){
   var box = document.getElementById('molarExosBox');
   var html = '';
   MOLAR_DATA.forEach(function(item, i){
-    html += '<div class="exo-box"><h5>'+(i+1)+'. '+item.label+'</h5>'
-      + '<div class="exo-field">M = <input type="number" step="0.1" id="'+item.id+'" placeholder="?"> g·mol⁻¹</div>'
-      + '<button class="exo-btn" onclick="checkMolar(\''+item.id+'\')">Vérifier</button>'
-      + '<div class="exo-fb" id="fb-'+item.id+'"></div></div>';
+    html += '<div class="exo-box"><h5>'+(i+1)+'. '+item.label+'</h5>';
+    if(item.type==='simple'){
+      html += '<p class="dnd-intro">Rédige la démarche sur ton cahier : formule littérale, calcul, puis résultat avec le bon nombre de chiffres significatifs et son unité.</p>'
+        + '<div class="exo-field">M = <input type="number" step="0.1" id="'+item.id+'" placeholder="?"> g·mol⁻¹</div>';
+    } else {
+      dndState[item.id] = { placed: [] };
+      html += '<p class="dnd-intro">Touche les termes qui composent '+item.formulaLabel+' pour construire la formule (attention, des intrus s\'y cachent) ; le calcul et le résultat se complètent automatiquement.</p>'
+        + '<div class="dnd-zone" id="dndzone-'+item.id+'"><span class="dnd-zone-empty-msg">Zone de construction de '+item.formulaLabel+'…</span></div>'
+        + '<div class="dnd-bank" id="dndbank-'+item.id+'"></div>';
+    }
+    html += '<div class="exo-btn-row">'
+      + '<button class="exo-btn" onclick="'+(item.type==='simple'?'checkMolar':'checkMolarDnd')+'(\''+item.id+'\')">Vérifier</button>'
+      + '<button class="exo-btn secondary" onclick="resetMolar(\''+item.id+'\')">🔄 Recommencer</button></div>'
+      + '<div class="exo-fb" id="fb-'+item.id+'"></div>'
+      + '<button class="accord-btn" onclick="toggleAccord(this)">👁 Voir la correction <span class="accord-arrow">▾</span></button>'
+      + '<div class="accord-body">'+molarCorrectionHtml(item)+'</div></div>';
   });
   box.innerHTML = html;
+  MOLAR_DATA.forEach(function(item){ if(item.type==='dnd') dndRenderBank(item.id); });
+}
+function dndTileLabel(item, key){
+  if(key.charAt(0)==='t'){ var t = item.terms[parseInt(key.substr(1))]; return (t.mult>1?t.mult+'×':'')+'M('+t.el+')'; }
+  var el = item.decoys[parseInt(key.substr(1))]; return 'M('+el+')';
+}
+function dndRenderBank(id){
+  var item = MOLAR_DATA.find(function(d){ return d.id===id; });
+  var bank = document.getElementById('dndbank-'+id);
+  var keys = item.terms.map(function(t,i){ return 't'+i; }).concat((item.decoys||[]).map(function(el,i){ return 'd'+i; }));
+  if(!dndState[id].order) dndState[id].order = keys.slice().sort(function(){ return Math.random()-0.5; });
+  var placed = dndState[id].placed;
+  bank.innerHTML = dndState[id].order.map(function(key){
+    var isPlaced = placed.indexOf(key)!==-1;
+    return '<div class="dnd-tile'+(isPlaced?' placed':'')+'" onclick="'+(isPlaced?'':'dndAdd(\''+id+'\',\''+key+'\')')+'">'+dndTileLabel(item,key)+'</div>';
+  }).join('');
+}
+function dndAdd(id, key){
+  dndState[id].placed.push(key);
+  dndRefreshZone(id); dndRenderBank(id);
+}
+function dndRemove(id, key){
+  var placed = dndState[id].placed;
+  var idx = placed.indexOf(key);
+  if(idx!==-1) placed.splice(idx,1);
+  dndRefreshZone(id); dndRenderBank(id);
+}
+function dndRefreshZone(id){
+  var item = MOLAR_DATA.find(function(d){ return d.id===id; });
+  var zone = document.getElementById('dndzone-'+id);
+  var placed = dndState[id].placed;
+  if(placed.length===0){
+    zone.innerHTML = '<span class="dnd-zone-empty-msg">Zone de construction de '+item.formulaLabel+'…</span>';
+    return;
+  }
+  zone.innerHTML = placed.map(function(key,i){
+    return (i>0?'<span class="dnd-plus">+</span>':'') + '<div class="dnd-zone-tile" onclick="dndRemove(\''+id+'\',\''+key+'\')">'+dndTileLabel(item,key)+'</div>';
+  }).join('');
+}
+function resetMolar(id){
+  var item = MOLAR_DATA.find(function(d){ return d.id===id; });
+  var fb = document.getElementById('fb-'+id);
+  fb.className='exo-fb'; fb.innerHTML='';
+  if(item.type==='simple'){
+    document.getElementById(id).value='';
+  } else {
+    dndState[id].placed = [];
+    dndRefreshZone(id); dndRenderBank(id);
+  }
 }
 function checkMolar(id){
   var item = MOLAR_DATA.find(function(d){ return d.id===id; });
@@ -979,77 +1186,130 @@ function checkMolar(id){
   if(Math.abs(val-item.ans) <= item.tol){
     fb.className='exo-fb ok'; fb.innerHTML='✓ Correct ! '+item.expl;
   } else {
-    fb.className='exo-fb ko'; fb.innerHTML='✗ Pas tout à fait (attendu ≈ '+item.ans+' g·mol⁻¹). '+item.expl;
+    fb.className='exo-fb ko'; fb.innerHTML='✗ Pas tout à fait (attendu ≈ '+item.ans+' g·mol⁻¹). Revois ta formule et ton calcul, ou consulte la correction.';
+  }
+}
+function checkMolarDnd(id){
+  var item = MOLAR_DATA.find(function(d){ return d.id===id; });
+  var fb = document.getElementById('fb-'+id);
+  var placed = dndState[id].placed;
+  if(placed.length===0){ fb.className='exo-fb ko'; fb.innerHTML="Construis d'abord la formule en touchant les termes."; return; }
+  var neededKeys = item.terms.map(function(t,i){ return 't'+i; });
+  var hasAllTerms = neededKeys.every(function(k){ return placed.indexOf(k)!==-1; });
+  var hasOnlyTerms = placed.every(function(k){ return k.charAt(0)==='t'; });
+  if(hasAllTerms && hasOnlyTerms && placed.length===neededKeys.length){
+    var cTerms = item.terms.map(function(t){ return (t.mult>1?t.mult+'×':'')+t.M; }).join(' + ');
+    fb.className='exo-fb ok';
+    fb.innerHTML='✓ Formule correcte ! '+item.formulaLabel+' = '+cTerms+' = '+item.ans+' g·mol⁻¹.';
+  } else {
+    fb.className='exo-fb ko';
+    fb.innerHTML="✗ Ce n'est pas la bonne composition (intrus inclus ou terme manquant). Relis la formule chimique de l'espèce.";
   }
 }
 renderMolarExos();
 
 /* ═══ Applications guidées — quantité de matière ═══ */
+var QM_OPTS = ['n = m/M','n = V/V<sub>m</sub>','n = C×V','n = N/N<sub>A</sub>'];
+var A6_OPTS = ['n = PV/(RT)','n = V/V<sub>m</sub>','n = m/M'];
 var APP_DATA = [
+  { id:'a0', diff:'d1', title:'Application 0 — Dénombrer des entités', statement:'Un échantillon de cuivre contient N = 1,505×10²³ atomes. Calculer la quantité de matière n(Cu) correspondante (N<sub>A</sub> = 6,02×10²³ mol⁻¹).',
+    fields:[{id:'a0n', label:'n(Cu) =', unit:'mol', ans:0.25, tol:0.02, formula:{options:QM_OPTS, correctIndex:3}}],
+    expl:'n = N/N<sub>A</sub> = 1,505×10²³ / 6,02×10²³ = 0,250 mol.' },
   { id:'a1', diff:'d1', title:'Application 1 — Fer solide', statement:'Calculer la quantité de matière de 25 g de fer solide (M(Fe) = 56 g·mol⁻¹).',
-    fields:[{id:'a1n', label:'n(Fe) =', unit:'mol', ans:0.446, tol:0.02}],
+    fields:[{id:'a1n', label:'n(Fe) =', unit:'mol', ans:0.446, tol:0.02, formula:{options:QM_OPTS, correctIndex:0}}],
     expl:'n = m/M = 25/56 ≈ 0,446 mol.' },
   { id:'a2', diff:'d1', title:'Application 2 — Plomb solide', statement:'Calculer la masse de 0,052 mol de plomb solide (M(Pb) = 207 g·mol⁻¹).',
-    fields:[{id:'a2m', label:'m(Pb) =', unit:'g', ans:10.76, tol:0.3}],
+    fields:[{id:'a2m', label:'m(Pb) =', unit:'g', ans:10.76, tol:0.3, formula:{options:QM_OPTS, correctIndex:0}}],
     expl:'m = n × M = 0,052 × 207 ≈ 10,76 g.' },
   { id:'a3', diff:'d2', title:'Application 3 — Méthane et dioxyde de carbone gazeux', statement:'Calculer la quantité de matière de 40 L de méthane gazeux, puis le volume de 4,7×10⁻² mol de CO₂(g), dans les conditions T = 0 °C et P = 1,013 bar (V<sub>m</sub> = 22,4 L·mol⁻¹).',
     fields:[
-      {id:'a3n', label:'n(CH₄) =', unit:'mol', ans:1.79, tol:0.05},
-      {id:'a3V', label:'V(CO₂) =', unit:'L', ans:1.05, tol:0.05}
+      {id:'a3n', label:'n(CH₄) =', unit:'mol', ans:1.79, tol:0.05, formula:{options:QM_OPTS, correctIndex:1}},
+      {id:'a3V', label:'V(CO₂) =', unit:'L', ans:1.05, tol:0.05, formula:{options:QM_OPTS, correctIndex:1}}
     ],
     expl:'n(CH₄) = V/V<sub>m</sub> = 40/22,4 ≈ 1,79 mol ; V(CO₂) = n × V<sub>m</sub> = 4,7×10⁻² × 22,4 ≈ 1,05 L.' },
   { id:'a4', diff:'d1', title:'Application 4 — Sulfate de cuivre en solution', statement:'Calculer la quantité de sulfate de cuivre (en mol) dans une solution de 1,5 L à 0,25 mol·L⁻¹.',
-    fields:[{id:'a4n', label:'n =', unit:'mol', ans:0.375, tol:0.02}],
+    fields:[{id:'a4n', label:'n =', unit:'mol', ans:0.375, tol:0.02, formula:{options:QM_OPTS, correctIndex:2}}],
     expl:'n = C × V = 0,25 × 1,5 = 0,375 mol.' },
   { id:'a5', diff:'d2', title:'Application 5 — Éthanol liquide', statement:"Calculer la quantité de matière d'un volume de 15 mL d'éthanol liquide (ρ = 0,79 kg·L⁻¹, M = 46 g·mol⁻¹).",
-    fields:[{id:'a5n', label:'n(éthanol) =', unit:'mol', ans:0.258, tol:0.02}],
+    fields:[{id:'a5n', label:'n(éthanol) =', unit:'mol', ans:0.258, tol:0.02, formula:{options:QM_OPTS, correctIndex:0}}],
     expl:'m = ρ × V = 0,79 × 0,015 = 0,01185 kg = 11,85 g ; n = m/M = 11,85/46 ≈ 0,258 mol.' },
   { id:'a6', diff:'d4', title:'Application 6 — Protoxyde d\'azote (bonus, anticipation Terminale)', statement:'Le protoxyde d\'azote N₂O (M = 44 g·mol⁻¹) est stocké dans une bouteille de 442 L, à 20 °C et 15 bar — conditions très différentes de 0 °C / 1,013 bar : le volume molaire ne s\'applique plus directement. On utilise l\'équation d\'état des gaz parfaits (vue en Terminale) : <strong>P·V = n·R·T</strong>, avec R = 8,314 J·mol⁻¹·K⁻¹, P en Pa, V en m³, T en K. Déterminer la masse de gaz dans la bouteille.',
-    fields:[{id:'a6m', label:'m(N₂O) =', unit:'kg', ans:11.98, tol:0.6}],
-    expl:'n = PV/(RT) = (15×10⁵ × 0,442)/(8,314 × 293) ≈ 272 mol ; m = n × M = 272 × 44 ≈ 11,98 kg (≈ 11 980 g).' }
+    fields:[{id:'a6m', label:'m(N₂O) =', unit:'kg', ans:11.98, tol:0.6, formula:{options:A6_OPTS, correctIndex:0}}],
+    expl:'n = PV/(RT) = (15×10⁵ × 0,442)/(8,314 × 293) ≈ 272 mol ; m = n × M = 272 × 44 ≈ 11,98 kg (≈ 11 980 g).' },
+  { id:'a7', diff:'d3', title:'Application 7 — Enchaîner deux relations', statement:"On dissout entièrement 1,17 g de chlorure de sodium NaCl solide (M = 58,5 g·mol⁻¹) dans de l'eau, puis on complète jusqu'à 100 mL de solution. Calculer d'abord la quantité de matière dissoute, puis la concentration molaire C de la solution obtenue.",
+    fields:[
+      {id:'a7n', label:'n(NaCl) =', unit:'mol', ans:0.02, tol:0.002, formula:{options:QM_OPTS, correctIndex:0}},
+      {id:'a7C', label:'C =', unit:'mol·L⁻¹', ans:0.20, tol:0.02, formula:{options:QM_OPTS, correctIndex:2}}
+    ],
+    expl:"Étape 1 (solide) : n = m/M = 1,17/58,5 = 0,020 mol. Étape 2 (dissous) : cette quantité de matière se retrouve dans les 100 mL de solution, donc C = n/V = 0,020/0,100 = 0,20 mol·L⁻¹." }
 ];
+function renderFieldWithFormula(f){
+  var opts = f.formula.options.map(function(opt,i){
+    return '<label><input type="radio" name="'+f.id+'-formula" value="'+i+'"> '+opt+'</label>';
+  }).join('');
+  return '<div class="exo-formula-choice"><em>Quelle relation utiliser ?</em>'+opts+'</div>'
+    + '<div class="exo-field">'+f.label+' <input type="number" step="0.001" id="'+f.id+'" placeholder="?"> '+f.unit+'</div>';
+}
+function fieldsCorrectionHtml(fields){
+  return fields.map(function(f){ return '<strong>'+f.label.replace(' =','')+'</strong> → '+f.formula.options[f.formula.correctIndex]; }).join('<br>');
+}
 function renderAppExos(){
   var box = document.getElementById('appExosBox');
   var html = '';
   APP_DATA.forEach(function(item){
     html += '<div class="exo-box"><h5>'+item.title+'<span class="diff-badge '+item.diff+'">'+ (item.diff==='d1'?'Facile':item.diff==='d2'?'Intermédiaire':'Avancé') +'</span></h5>'
       + '<p style="font-size:.86rem;margin-bottom:8px;">'+item.statement+'</p>';
-    item.fields.forEach(function(f){
-      html += '<div class="exo-field">'+f.label+' <input type="number" step="0.001" id="'+f.id+'" placeholder="?"> '+f.unit+'</div>';
-    });
-    html += '<button class="exo-btn" onclick="checkApp(\''+item.id+'\')">Vérifier</button>'
-      + '<div class="exo-fb" id="fb-'+item.id+'"></div></div>';
+    item.fields.forEach(function(f){ html += renderFieldWithFormula(f); });
+    html += '<div class="exo-btn-row"><button class="exo-btn" onclick="checkApp(\''+item.id+'\')">Vérifier</button>'
+      + '<button class="exo-btn secondary" onclick="resetApp(\''+item.id+'\')">🔄 Recommencer</button></div>'
+      + '<div class="exo-fb" id="fb-'+item.id+'"></div>'
+      + '<button class="accord-btn" onclick="toggleAccord(this)">👁 Voir la correction <span class="accord-arrow">▾</span></button>'
+      + '<div class="accord-body"><p>'+fieldsCorrectionHtml(item.fields)+'</p><p style="margin-top:6px;">'+item.expl+'</p></div></div>';
   });
   box.innerHTML = html;
+}
+function resetApp(id){
+  var item = APP_DATA.find(function(d){ return d.id===id; });
+  item.fields.forEach(function(f){
+    document.getElementById(f.id).value = '';
+    document.getElementsByName(f.id+'-formula').forEach(function(r){ r.checked = false; });
+  });
+  var fb = document.getElementById('fb-'+id);
+  fb.className='exo-fb'; fb.innerHTML='';
 }
 function checkApp(id){
   var item = APP_DATA.find(function(d){ return d.id===id; });
   var fb = document.getElementById('fb-'+id);
-  var allOk = true, anyEmpty = false;
+  var allOk = true, anyEmpty = false, formulaOk = true;
   item.fields.forEach(function(f){
     var val = parseFloat(document.getElementById(f.id).value);
-    if(isNaN(val)){ anyEmpty = true; return; }
+    var checked = document.querySelector('input[name="'+f.id+'-formula"]:checked');
+    if(isNaN(val) || !checked){ anyEmpty = true; return; }
     if(Math.abs(val-f.ans) > f.tol) allOk = false;
+    if(parseInt(checked.value) !== f.formula.correctIndex) formulaOk = false;
   });
-  if(anyEmpty){ fb.className='exo-fb ko'; fb.innerHTML='Renseigne toutes les valeurs demandées.'; return; }
-  if(allOk){ fb.className='exo-fb ok'; fb.innerHTML='✓ Correct ! '+item.expl; }
+  if(anyEmpty){ fb.className='exo-fb ko'; fb.innerHTML='Choisis une relation et renseigne toutes les valeurs demandées.'; return; }
+  if(allOk && formulaOk){ fb.className='exo-fb ok'; fb.innerHTML='✓ Correct ! '+item.expl; }
+  else if(allOk && !formulaOk){ fb.className='exo-fb ko'; fb.innerHTML='Le résultat numérique est bon, mais relis la relation cochée. '+item.expl; }
   else { fb.className='exo-fb ko'; fb.innerHTML='✗ Pas tout à fait. '+item.expl; }
 }
 renderAppExos();
 
 /* ═══ Exercices guidés — dilution ═══ */
+var DIL_OPTS = ['C<sub>mère</sub>×V<sub>mère</sub> = C<sub>fille</sub>×V<sub>fille</sub>','F = V<sub>fille</sub>/V<sub>mère</sub>','n = C×V'];
+var D3_OPTS = ['F = F<sub>1</sub>×F<sub>2</sub> (dilutions successives)','F = C<sub>mère</sub>/C<sub>fille</sub>','n = C×V'];
 var DIL_DATA = [
   { id:'d1', diff:'d1', title:'Exercice 1 — Sirop de menthe', statement:'On dilue 15 mL de sirop de concentration C<sub>mère</sub> = 1,2 mol·L⁻¹ dans une fiole jaugée de 250 mL complétée avec de l\'eau. Calculer la concentration C<sub>fille</sub> puis le facteur de dilution F.',
     fields:[
-      {id:'d1C', label:'C<sub>fille</sub> =', unit:'mol·L⁻¹', ans:0.072, tol:0.004},
-      {id:'d1F', label:'F =', unit:'', ans:16.7, tol:0.5}
+      {id:'d1C', label:'C<sub>fille</sub> =', unit:'mol·L⁻¹', ans:0.072, tol:0.004, formula:{options:DIL_OPTS, correctIndex:0}},
+      {id:'d1F', label:'F =', unit:'', ans:16.7, tol:0.5, formula:{options:DIL_OPTS, correctIndex:1}}
     ],
     expl:'C<sub>fille</sub> = C<sub>mère</sub>×V<sub>mère</sub>/V<sub>fille</sub> = 1,2×15/250 ≈ 0,072 mol·L⁻¹ ; F = V<sub>fille</sub>/V<sub>mère</sub> = 250/15 ≈ 16,7.' },
   { id:'d2', diff:'d2', title:'Exercice 2 — Préparer une solution diluée', statement:'On dispose d\'une solution mère de sulfate de cuivre à C<sub>mère</sub> = 0,50 mol·L⁻¹. On souhaite préparer 100 mL de solution fille à C<sub>fille</sub> = 0,020 mol·L⁻¹. Calculer le volume V<sub>mère</sub> à prélever.',
-    fields:[{id:'d2V', label:'V<sub>mère</sub> =', unit:'mL', ans:4, tol:0.3}],
+    fields:[{id:'d2V', label:'V<sub>mère</sub> =', unit:'mL', ans:4, tol:0.3, formula:{options:DIL_OPTS, correctIndex:0}}],
     expl:'C<sub>mère</sub>×V<sub>mère</sub> = C<sub>fille</sub>×V<sub>fille</sub> ⟹ V<sub>mère</sub> = (0,020×100)/0,50 = 4 mL.' },
   { id:'d3', diff:'d3', title:'Exercice 3 — Dilutions successives', statement:'Une solution est diluée une première fois avec un facteur F₁ = 10, puis la solution obtenue est diluée une seconde fois avec un facteur F₂ = 5. Calculer le facteur de dilution global F.',
-    fields:[{id:'d3F', label:'F =', unit:'', ans:50, tol:1}],
+    fields:[{id:'d3F', label:'F =', unit:'', ans:50, tol:1, formula:{options:D3_OPTS, correctIndex:0}}],
     expl:'Pour des dilutions successives, les facteurs se multiplient : F = F₁×F₂ = 10×5 = 50.' }
 ];
 function renderDilExos(){
@@ -1058,25 +1318,38 @@ function renderDilExos(){
   DIL_DATA.forEach(function(item){
     html += '<div class="exo-box"><h5>'+item.title+'<span class="diff-badge '+item.diff+'">'+ (item.diff==='d1'?'Facile':item.diff==='d2'?'Intermédiaire':'Avancé') +'</span></h5>'
       + '<p style="font-size:.86rem;margin-bottom:8px;">'+item.statement+'</p>';
-    item.fields.forEach(function(f){
-      html += '<div class="exo-field">'+f.label+' <input type="number" step="0.001" id="'+f.id+'" placeholder="?"> '+f.unit+'</div>';
-    });
-    html += '<button class="exo-btn" onclick="checkDil(\''+item.id+'\')">Vérifier</button>'
-      + '<div class="exo-fb" id="fb-'+item.id+'"></div></div>';
+    item.fields.forEach(function(f){ html += renderFieldWithFormula(f); });
+    html += '<div class="exo-btn-row"><button class="exo-btn" onclick="checkDil(\''+item.id+'\')">Vérifier</button>'
+      + '<button class="exo-btn secondary" onclick="resetDil(\''+item.id+'\')">🔄 Recommencer</button></div>'
+      + '<div class="exo-fb" id="fb-'+item.id+'"></div>'
+      + '<button class="accord-btn" onclick="toggleAccord(this)">👁 Voir la correction <span class="accord-arrow">▾</span></button>'
+      + '<div class="accord-body"><p>'+fieldsCorrectionHtml(item.fields)+'</p><p style="margin-top:6px;">'+item.expl+'</p></div></div>';
   });
   box.innerHTML = html;
+}
+function resetDil(id){
+  var item = DIL_DATA.find(function(d){ return d.id===id; });
+  item.fields.forEach(function(f){
+    document.getElementById(f.id).value = '';
+    document.getElementsByName(f.id+'-formula').forEach(function(r){ r.checked = false; });
+  });
+  var fb = document.getElementById('fb-'+id);
+  fb.className='exo-fb'; fb.innerHTML='';
 }
 function checkDil(id){
   var item = DIL_DATA.find(function(d){ return d.id===id; });
   var fb = document.getElementById('fb-'+id);
-  var allOk = true, anyEmpty = false;
+  var allOk = true, anyEmpty = false, formulaOk = true;
   item.fields.forEach(function(f){
     var val = parseFloat(document.getElementById(f.id).value);
-    if(isNaN(val)){ anyEmpty = true; return; }
+    var checked = document.querySelector('input[name="'+f.id+'-formula"]:checked');
+    if(isNaN(val) || !checked){ anyEmpty = true; return; }
     if(Math.abs(val-f.ans) > f.tol) allOk = false;
+    if(parseInt(checked.value) !== f.formula.correctIndex) formulaOk = false;
   });
-  if(anyEmpty){ fb.className='exo-fb ko'; fb.innerHTML='Renseigne toutes les valeurs demandées.'; return; }
-  if(allOk){ fb.className='exo-fb ok'; fb.innerHTML='✓ Correct ! '+item.expl; }
+  if(anyEmpty){ fb.className='exo-fb ko'; fb.innerHTML='Choisis une relation et renseigne toutes les valeurs demandées.'; return; }
+  if(allOk && formulaOk){ fb.className='exo-fb ok'; fb.innerHTML='✓ Correct ! '+item.expl; }
+  else if(allOk && !formulaOk){ fb.className='exo-fb ko'; fb.innerHTML='Le résultat numérique est bon, mais relis la relation cochée. '+item.expl; }
   else { fb.className='exo-fb ko'; fb.innerHTML='✗ Pas tout à fait. '+item.expl; }
 }
 renderDilExos();
@@ -1182,6 +1455,34 @@ function checkTartrazine(){
   }
 }
 
+/* ═══ Exercices niveau Seconde — bague en or (N/NA puis m/M) ═══ */
+function checkGoldN(){
+  var val = parseFloat(document.getElementById('exoGoldN').value);
+  var fb = document.getElementById('fbGoldN');
+  var ans = 3.01e22/6.02e23; // = 0,0500 mol
+  if(isNaN(val)){ fb.className='exo-fb ko'; fb.innerHTML='Entre une valeur numérique pour n(Au).'; return; }
+  if(Math.abs(val-ans) <= ans*0.05){
+    fb.className='exo-fb ok';
+    fb.innerHTML='✓ Correct !<br><strong>Formule :</strong> n(Au) = N / N<sub>A</sub><br><strong>Calcul :</strong> n(Au) = 3,01×10²² / 6,02×10²³<br><strong>Résultat :</strong> n(Au) = 5,00×10⁻² mol (3 chiffres significatifs, comme les données).';
+  } else {
+    fb.className='exo-fb ko';
+    fb.innerHTML='✗ Pas tout à fait.<br><strong>Formule :</strong> n(Au) = N / N<sub>A</sub><br><strong>Calcul :</strong> n(Au) = 3,01×10²² / 6,02×10²³<br><strong>Résultat :</strong> n(Au) = 5,00×10⁻² mol.';
+  }
+}
+function checkGoldM(){
+  var val = parseFloat(document.getElementById('exoGoldM').value);
+  var fb = document.getElementById('fbGoldM');
+  var ans = 9.85/197; // = 0,0500 mol
+  if(isNaN(val)){ fb.className='exo-fb ko'; fb.innerHTML='Entre une valeur numérique pour n(Au).'; return; }
+  if(Math.abs(val-ans) <= ans*0.05){
+    fb.className='exo-fb ok';
+    fb.innerHTML='✓ Correct !<br><strong>Formule :</strong> n(Au) = m / M<br><strong>Calcul :</strong> n(Au) = 9,85 / 197<br><strong>Résultat :</strong> n(Au) = 5,00×10⁻² mol (3 chiffres significatifs). On retrouve exactement la même quantité de matière qu\'à l\'exercice 1 : c\'est bien la même bague, comptée par deux méthodes différentes !';
+  } else {
+    fb.className='exo-fb ko';
+    fb.innerHTML='✗ Pas tout à fait.<br><strong>Formule :</strong> n(Au) = m / M<br><strong>Calcul :</strong> n(Au) = 9,85 / 197<br><strong>Résultat :</strong> n(Au) = 5,00×10⁻² mol (à comparer avec l\'exercice 1).';
+  }
+}
+
 /* ═══ QCM — loi de Beer-Lambert ═══ */
 var QCM_BL = [
   { q:"Que vaut l'absorbance A d'une solution qui n'absorbe pas la radiation utilisée ?", opts:["A = 0","A = 1","A n'est pas définie"], ans:0, expl:"Par définition, A est nulle si la radiation n'est pas absorbée." },
@@ -1213,7 +1514,13 @@ var QCM_DIL = [
   { q:"Le facteur de dilution F peut-il être inférieur à 1 ?", opts:["Oui, si on prélève un grand volume","Non, F est toujours supérieur ou égal à 1", "Oui, si le solvant est plus dense que le soluté"], ans:1, expl:"Une dilution rend une solution moins concentrée : C<sub>fille</sub> ≤ C<sub>mère</sub>, donc F = C<sub>mère</sub>/C<sub>fille</sub> est toujours ≥ 1." },
   { q:"On dilue 10 mL d'une solution mère pour obtenir 200 mL de solution fille. Quel est le facteur de dilution F ?", opts:["F = 2","F = 20","F = 0,05"], ans:1, expl:"F = V<sub>fille</sub>/V<sub>mère</sub> = 200/10 = 20." }
 ];
-var QCM_DATA = { qcmBL: QCM_BL, qcmGM: QCM_GM, qcmDIL: QCM_DIL };
+/* ═══ QCM — quantité de matière ═══ */
+var QCM_QM = [
+  { q:"Un échantillon contient deux fois plus d'entités qu'un autre échantillon de la même espèce. Que peut-on dire de leurs quantités de matière ?", opts:["La première est le double de la seconde","Elles sont égales, la quantité de matière ne dépend pas du nombre d'entités","On ne peut rien dire sans connaître la masse molaire"], ans:0, expl:"n = N/N<sub>A</sub> : la quantité de matière est directement proportionnelle au nombre d'entités N. Deux fois plus d'entités ⟹ deux fois plus de moles." },
+  { q:"On dissout 0,10 mol de sel dans de l'eau puis on complète à un volume V. Une fois la solution préparée, si on en prélève seulement la moitié dans un bécher, quelle est la quantité de matière de sel contenue dans ce prélèvement ?", opts:["0,10 mol, comme dans la solution complète","0,050 mol, la moitié de la quantité initiale","On ne peut pas savoir sans une nouvelle pesée"], ans:1, expl:"Prélever la moitié du volume d'une solution homogène, c'est prélever la moitié de tout ce qu'elle contient : n = C×V, donc prélever V/2 donne n/2." },
+  { q:"Un mélange contient 0,20 mol de A et 0,15 mol de B. Quelle est la quantité de matière totale de ce mélange ?", opts:["0,175 mol (moyenne)","0,35 mol (somme)","On ne peut pas l'additionner, ce sont des espèces différentes"], ans:1, expl:"Les quantités de matière de constituants différents s'additionnent simplement : n<sub>totale</sub> = n(A) + n(B) = 0,20 + 0,15 = 0,35 mol." }
+];
+var QCM_DATA = { qcmBL: QCM_BL, qcmGM: QCM_GM, qcmDIL: QCM_DIL, qcmQM: QCM_QM };
 function checkQCM(containerId, qi){
   var data = QCM_DATA[containerId][qi];
   var checked = document.querySelector('input[name="'+containerId+'-q'+qi+'"]:checked');
@@ -1229,6 +1536,7 @@ function checkQCM(containerId, qi){
 renderQCM('qcmBL', QCM_BL);
 renderQCM('qcmGM', QCM_GM);
 renderQCM('qcmDIL', QCM_DIL);
+renderQCM('qcmQM', QCM_QM);
 
 /* ═══ Escape Game — Le Coffre du Laboratoire ═══ */
 var EB_CASES = [
