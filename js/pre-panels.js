@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="pre-panel-icon">${getIconPre('seq' + num, 'panel' + n)}</div>
         <div>
           <p class="pre-panel-num">Séquence ${num}</p>
-          <h2 class="pre-panel-title">Séquence ${num}</h2>
+          <h2 class="pre-panel-title">${PRE_TITRES[num] || ('Séquence ' + num)}</h2>
           <p class="pre-panel-sub">Cours interactif complet — Première Spécialité Physique-Chimie</p>
         </div>
       </div>
