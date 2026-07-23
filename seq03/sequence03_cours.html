@@ -1302,15 +1302,15 @@ var DIL_DATA = [
   { id:'d1', diff:'d1', title:'Exercice 1 — Sirop de menthe', statement:'On dilue 15 mL de sirop de concentration C<sub>mère</sub> = 1,2 mol·L⁻¹ dans une fiole jaugée de 250 mL complétée avec de l\'eau. Calculer la concentration C<sub>fille</sub> puis le facteur de dilution F.',
     fields:[
       {id:'d1C', label:'C<sub>fille</sub> =', unit:'mol·L⁻¹', ans:0.072, tol:0.004, formula:{options:DIL_OPTS, correctIndex:0}},
-      {id:'d1F', label:'F =', unit:'', ans:16.7, tol:0.5, formula:{options:DIL_OPTS, correctIndex:1}}
+      {id:'d1F', label:'F =', unit:'', ans:16.7, tol:0.5, formula:{options:DIL_OPTS, correctIndex:1}, isFactor:true}
     ],
-    expl:'C<sub>fille</sub> = C<sub>mère</sub>×V<sub>mère</sub>/V<sub>fille</sub> = 1,2×15/250 ≈ 0,072 mol·L⁻¹ ; F = V<sub>fille</sub>/V<sub>mère</sub> = 250/15 ≈ 16,7.' },
+    expl:'C<sub>fille</sub> = C<sub>mère</sub>×V<sub>mère</sub>/V<sub>fille</sub> = 1,2×15/250 ≈ 0,072 mol·L⁻¹ ; F = V<sub>fille</sub>/V<sub>mère</sub> = 250/15 ≈ 16,7. Rappel : F est toujours <strong>supérieur à 1</strong>, puisqu\'une dilution diminue la concentration (C<sub>fille</sub> < C<sub>mère</sub>).' },
   { id:'d2', diff:'d2', title:'Exercice 2 — Préparer une solution diluée', statement:'On dispose d\'une solution mère de sulfate de cuivre à C<sub>mère</sub> = 0,50 mol·L⁻¹. On souhaite préparer 100 mL de solution fille à C<sub>fille</sub> = 0,020 mol·L⁻¹. Calculer le volume V<sub>mère</sub> à prélever.',
     fields:[{id:'d2V', label:'V<sub>mère</sub> =', unit:'mL', ans:4, tol:0.3, formula:{options:DIL_OPTS, correctIndex:0}}],
-    expl:'C<sub>mère</sub>×V<sub>mère</sub> = C<sub>fille</sub>×V<sub>fille</sub> ⟹ V<sub>mère</sub> = (0,020×100)/0,50 = 4 mL.' },
+    expl:'C<sub>mère</sub>×V<sub>mère</sub> = C<sub>fille</sub>×V<sub>fille</sub> ⟹ V<sub>mère</sub> = (0,020×100)/0,50 = 4 mL. On peut vérifier avec F = C<sub>mère</sub>/C<sub>fille</sub> = 0,50/0,020 = 25 (bien supérieur à 1) et V<sub>mère</sub> = V<sub>fille</sub>/F = 100/25 = 4 mL : cohérent.' },
   { id:'d3', diff:'d3', title:'Exercice 3 — Dilutions successives', statement:'Une solution est diluée une première fois avec un facteur F₁ = 10, puis la solution obtenue est diluée une seconde fois avec un facteur F₂ = 5. Calculer le facteur de dilution global F.',
-    fields:[{id:'d3F', label:'F =', unit:'', ans:50, tol:1, formula:{options:D3_OPTS, correctIndex:0}}],
-    expl:'Pour des dilutions successives, les facteurs se multiplient : F = F₁×F₂ = 10×5 = 50.' }
+    fields:[{id:'d3F', label:'F =', unit:'', ans:50, tol:1, formula:{options:D3_OPTS, correctIndex:0}, isFactor:true}],
+    expl:'Pour des dilutions successives, les facteurs se multiplient : F = F₁×F₂ = 10×5 = 50. Comme F₁ et F₂ sont chacun supérieurs à 1, leur produit F l\'est nécessairement aussi.' }
 ];
 function renderDilExos(){
   var box = document.getElementById('dilExosBox');
@@ -1339,15 +1339,17 @@ function resetDil(id){
 function checkDil(id){
   var item = DIL_DATA.find(function(d){ return d.id===id; });
   var fb = document.getElementById('fb-'+id);
-  var allOk = true, anyEmpty = false, formulaOk = true;
+  var allOk = true, anyEmpty = false, formulaOk = true, factorBelow1 = false;
   item.fields.forEach(function(f){
     var val = parseFloat(document.getElementById(f.id).value);
     var checked = document.querySelector('input[name="'+f.id+'-formula"]:checked');
     if(isNaN(val) || !checked){ anyEmpty = true; return; }
     if(Math.abs(val-f.ans) > f.tol) allOk = false;
     if(parseInt(checked.value) !== f.formula.correctIndex) formulaOk = false;
+    if(f.isFactor && val < 1) factorBelow1 = true;
   });
   if(anyEmpty){ fb.className='exo-fb ko'; fb.innerHTML='Choisis une relation et renseigne toutes les valeurs demandées.'; return; }
+  if(factorBelow1){ fb.className='exo-fb ko'; fb.innerHTML='✗ Un facteur de dilution F ne peut jamais être inférieur à 1 (une dilution diminue toujours la concentration) : tu as sans doute inversé une division. Revois ton calcul.'; return; }
   if(allOk && formulaOk){ fb.className='exo-fb ok'; fb.innerHTML='✓ Correct ! '+item.expl; }
   else if(allOk && !formulaOk){ fb.className='exo-fb ko'; fb.innerHTML='Le résultat numérique est bon, mais relis la relation cochée. '+item.expl; }
   else { fb.className='exo-fb ko'; fb.innerHTML='✗ Pas tout à fait. '+item.expl; }
