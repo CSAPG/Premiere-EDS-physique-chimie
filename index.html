@@ -137,6 +137,7 @@
   <!-- ══════════════════════════════════════
        SCRIPTS
   ══════════════════════════════════════ -->
+  <script src="js/pre-titres.js"></script>
   <script src="js/pre-icons.js"></script>
   <script src="js/pre-panels.js"></script>
   <script src="js/navigation.js"></script>
@@ -154,7 +155,7 @@
       // Séquences 03 à 14 : pastilles cliquables, titre provisoire, icône ajoutée dès réception du fichier
       for (let n = 3; n <= 14; n++) {
         const num = n.toString().padStart(2, '0');
-        CARD_DATA.push({ id: n, num: num, titre: 'Séquence ' + num, icone: 'seq' + num, soon: false });
+        CARD_DATA.push({ id: n, num: num, titre: PRE_TITRES[num] || ('Séquence ' + num), icone: 'seq' + num, soon: false });
       }
 
       const grid = document.getElementById('pre-seq-grid');
