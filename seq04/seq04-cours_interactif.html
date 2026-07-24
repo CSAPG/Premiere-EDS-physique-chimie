@@ -175,6 +175,80 @@ table.couples td{padding:8px;border:1px solid var(--gris-bord);vertical-align:mi
 .exo-fb.ok{display:block;background:var(--vert-clair);border-left:4px solid var(--vert);color:#1a5a3a}
 .exo-fb.ko{display:block;background:var(--rouge-clair);border-left:4px solid var(--rouge);color:#7a2418}
 
+/* Activité drag&drop tactile - Oxydants/Réducteurs (comme fichier Terminale) */
+.activite-card{background:var(--blanc);border:1.5px solid var(--gris-bord);border-radius:12px;padding:16px 18px;margin-bottom:16px}
+.drag-pool{display:flex;flex-wrap:wrap;gap:8px;padding:12px;background:var(--gris-fond);border:1.5px dashed var(--gris-bord);border-radius:10px;min-height:48px;margin-bottom:14px}
+.drag-zones{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px}
+@media(max-width:500px){.drag-zones{grid-template-columns:1fr}}
+.drop-zone{min-height:60px;border:2px dashed var(--gris-bord);border-radius:10px;padding:10px 12px;background:var(--blanc);display:flex;flex-wrap:wrap;gap:7px;align-items:flex-start;transition:border-color .15s, background .15s}
+.drop-zone.drag-over{border-color:var(--bleu);background:var(--bleu-clair);border-style:solid}
+.drop-zone.drop-ok{border-color:var(--vert);background:var(--vert-clair);border-style:solid}
+.drop-zone.drop-ko{border-color:var(--rouge);background:var(--rouge-clair);border-style:solid}
+.drop-zone-label{display:block;font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:700;color:var(--texte-leger);margin-bottom:8px;letter-spacing:.04em;text-transform:uppercase}
+.drop-zone-placeholder{color:var(--texte-leger);font-size:.78rem;font-weight:400;font-style:italic}
+.drag-badge{display:inline-flex;align-items:center;gap:5px;padding:5px 13px;border-radius:20px;font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:700;cursor:grab;user-select:none;border:2px solid transparent;transition:opacity .15s, transform .1s;touch-action:none}
+.drag-badge:active{cursor:grabbing;transform:scale(1.08);opacity:.85}
+.dq-feedback{font-size:.8rem;margin-top:6px;padding-left:2px;min-height:16px}
+.dq-feedback.wrong{color:var(--rouge)}
+
+/* Glossaire */
+.gloss-search{width:100%;padding:10px 14px;border:1.5px solid var(--gris-bord);border-radius:20px;font-family:'Nunito',sans-serif;font-size:.88rem;margin-bottom:16px}
+.gloss-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+@media(max-width:700px){.gloss-grid{grid-template-columns:1fr}}
+.gloss-item{background:var(--blanc);border:1.5px solid var(--gris-bord);border-radius:10px;padding:12px 16px}
+.gloss-item dt{font-family:'Outfit',sans-serif;font-weight:800;color:var(--bleu);font-size:.9rem;margin-bottom:4px}
+.gloss-item dd{font-size:.84rem;color:var(--texte);line-height:1.55}
+
+/* Badges de difficulté */
+.diff-badge{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;font-weight:800;letter-spacing:.03em;padding:3px 10px;border-radius:20px;margin-right:8px;vertical-align:middle}
+.diff-badge.d1{background:var(--vert-clair);color:var(--vert)}
+.diff-badge.d2{background:var(--bleu-clair);color:var(--bleu)}
+.diff-badge.d3{background:var(--orange-clair);color:var(--orange)}
+.diff-badge.d4{background:var(--rouge-clair);color:var(--rouge)}
+.diff-badge.d5{background:var(--violet-clair);color:var(--violet)}
+
+/* Escape Game */
+.escape-wrap{background:#0a0a0f;border-radius:14px;padding:20px;margin:14px 0;box-shadow:inset 0 0 60px rgba(0,0,0,.8)}
+.escape-story{color:#cfd6e6;font-size:.86rem;line-height:1.7;background:rgba(255,255,255,.04);border-left:4px solid var(--orange);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:16px}
+.escape-steps-nav{display:flex;justify-content:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.escape-step-badge{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:.76rem;font-weight:800;background:rgba(255,255,255,.06);color:#8a93a8;border:1.5px solid rgba(255,255,255,.12)}
+.escape-step-badge.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+.escape-step-badge.done{background:rgba(91,224,138,.18);color:#5be08a;border-color:rgba(91,224,138,.4)}
+.escape-stage{display:none;margin-bottom:16px;padding-top:10px;border-top:1px dashed rgba(255,255,255,.12)}
+.escape-stage.on{display:block;animation:fadeIn .25s ease}
+.escape-locked{text-align:center;color:#6a7386;font-size:.84rem;padding:18px;background:rgba(255,255,255,.03);border-radius:10px;border:1.5px dashed rgba(255,255,255,.15)}
+.escape-ctrl{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:14px}
+.escape-btn{border:none;border-radius:10px;padding:10px 16px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.85rem;cursor:pointer;color:#fff;transition:transform .15s ease, box-shadow .15s ease;box-shadow:0 3px 0 rgba(0,0,0,.35)}
+.escape-btn:hover{transform:translateY(-2px)}
+.escape-btn:active{transform:translateY(1px);box-shadow:0 1px 0 rgba(0,0,0,.35)}
+.escape-btn.a{background:#7a6bd8}
+.escape-btn.b{background:#2050d8}
+.escape-btn.c{background:#1fa550}
+.escape-log{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 14px;margin-bottom:14px;min-height:28px;font-size:.82rem;color:#dfe4f0;line-height:1.7}
+.escape-log b{color:#ffd76b}
+.escape-guess{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;background:rgba(255,255,255,.04);border-radius:10px;padding:12px;margin-bottom:12px}
+.escape-guess select{padding:8px 12px;border-radius:7px;border:none;font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem}
+.escape-guess button, .escape-validate-btn{border:none;border-radius:8px;padding:9px 18px;font-weight:800;font-size:.84rem;background:var(--orange);color:#fff;cursor:pointer}
+.escape-guess button:hover, .escape-validate-btn:hover{background:#c8602a}
+.escape-eq{color:#dfe4f0;font-family:'DM Mono',monospace;font-size:.9rem;text-align:center;line-height:2.2;margin-bottom:12px}
+.escape-eq select{padding:4px 6px;border-radius:6px;border:none;font-family:'DM Mono',monospace;font-size:.86rem}
+.escape-result{text-align:center;font-size:.9rem;font-weight:700;min-height:24px;margin-bottom:10px}
+.escape-result.win{color:#5be08a}
+.escape-result.lose{color:#ff8a8a}
+.escape-comp-grid{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:14px 0}
+.escape-comp-btn{padding:10px 16px;border-radius:10px;border:2px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#dfe4f0;font-family:'DM Mono',monospace;font-size:.84rem;cursor:pointer;transition:transform .15s,border-color .15s}
+.escape-comp-btn:hover{transform:scale(1.04);border-color:rgba(255,255,255,.4)}
+.escape-comp-btn.sel{border-color:#fff}
+.escape-comp-btn.ok{border-color:#5be08a;background:rgba(91,224,138,.15)}
+.escape-comp-btn.ko{border-color:#ff8a8a;background:rgba(255,138,138,.15)}
+.escape-reset{display:block;margin:14px auto 0;background:transparent;border:1.5px solid rgba(255,255,255,.25);color:#cfd6e6;border-radius:20px;padding:6px 16px;font-size:.78rem;font-weight:700;cursor:pointer}
+.escape-reset:hover{background:rgba(255,255,255,.08)}
+.escape-score{text-align:center;color:#8a93a8;font-size:.76rem;margin-top:8px}
+.escape-victory{display:none;text-align:center;background:linear-gradient(135deg,#1a3a2a,#0f2a1c);border:2px solid #5be08a;border-radius:12px;padding:20px;margin-top:14px;animation:fadeIn .4s ease}
+.escape-victory.show{display:block}
+.escape-victory h3{color:#5be08a;font-family:'Outfit',sans-serif;font-size:1.1rem;margin-bottom:6px}
+.escape-victory p{color:#cfd6e6;font-size:.86rem}
+
 .footer-note{max-width:1300px;margin:0 auto;padding:0 20px 30px;font-size:.76rem;color:var(--texte-leger);text-align:center}
 
 @media(max-width:600px){
@@ -265,6 +339,26 @@ table.couples td{padding:8px;border:1px solid var(--gris-bord);vertical-align:mi
         <li><strong>Un oxydant</strong> est une espèce chimique capable de <strong>capter</strong> (gagner) un ou plusieurs électrons.</li>
         <li><strong>Un réducteur</strong> est une espèce chimique capable de <strong>céder</strong> (perdre) un ou plusieurs électrons.</li>
       </ul>
+    </div>
+
+    <div class="activite-card">
+      <h5 class="halfeq-title">🧲 Activité — Classer les oxydants et les réducteurs</h5>
+      <p style="font-size:.86rem;margin-bottom:12px;">Glissez chaque espèce chimique dans la bonne catégorie :</p>
+      <div id="drag-pool-oxyred" class="drag-pool"></div>
+      <div class="drag-zones">
+        <div>
+          <div class="drop-zone-label">🟥 Oxydants</div>
+          <div class="drop-zone" id="drop-oxyred-ox"><span class="drop-zone-placeholder">Dépose ici…</span></div>
+          <div class="dq-feedback" id="fb-ox"></div>
+        </div>
+        <div>
+          <div class="drop-zone-label">🟦 Réducteurs</div>
+          <div class="drop-zone" id="drop-oxyred-red"><span class="drop-zone-placeholder">Dépose ici…</span></div>
+          <div class="dq-feedback" id="fb-red"></div>
+        </div>
+      </div>
+      <button class="dnd-btn" onclick="verifierOxyred()">✓ Vérifier</button>
+      <button class="dnd-btn reset" onclick="corrigerOxyred()">👁 Voir la correction</button>
     </div>
 
     <div class="card">
@@ -452,10 +546,43 @@ table.couples td{padding:8px;border:1px solid var(--gris-bord);vertical-align:mi
     <div class="intro-box">Entraînez-vous à associer chaque couple oxydant/réducteur à sa demi-équation électronique, puis à remettre dans l'ordre les étapes de la méthode.</div>
 
     <div class="section-title"><span class="icon">🧩</span>Jeu 1 — Construire la demi-équation en appliquant la méthode</div>
-    <p style="font-size:.85rem;color:var(--texte-leger);margin-bottom:10px;">Pour chaque couple, glissez les coefficients manquants dans la demi-équation en appliquant les étapes de la fiche méthode (conservation des éléments, puis de la charge).</p>
+    <p style="font-size:.85rem;color:var(--texte-leger);margin-bottom:10px;">Pour chaque couple, glissez les coefficients manquants dans la demi-équation en appliquant les étapes de la fiche méthode (conservation des éléments, puis de la charge). Les couples sont classés du plus simple au plus complexe.</p>
 
     <div class="halfeq-block">
-      <h5 class="halfeq-title">Couple NO₃⁻(aq)/NO(g) — milieu acide</h5>
+      <h5 class="halfeq-title"><span class="diff-badge d1">Niveau 1</span> Couple Cl₂(g)/Cl⁻(aq)</h5>
+      <div class="halfeq-row">
+        Cl₂(g) + <span class="dnd-blank" data-couple="cl2" data-slot="a" data-answer="2"></span> e⁻ ⇌ <span class="dnd-blank" data-couple="cl2" data-slot="b" data-answer="2"></span> Cl⁻(aq)
+      </div>
+      <div class="dnd-bank" data-couple="cl2">
+        <div class="dnd-num" draggable="true" data-value="2">2</div>
+        <div class="dnd-num" draggable="true" data-value="2">2</div>
+        <div class="dnd-num" draggable="true" data-value="1">1</div>
+        <div class="dnd-num" draggable="true" data-value="3">3</div>
+      </div>
+      <button class="dnd-btn" onclick="checkHalfEq('cl2')">✓ Vérifier</button>
+      <button class="dnd-btn reset" onclick="resetHalfEq('cl2')">↺ Réinitialiser</button>
+      <div class="dnd-feedback" id="fb-cl2"></div>
+    </div>
+
+    <div class="halfeq-block">
+      <h5 class="halfeq-title"><span class="diff-badge d2">Niveau 2</span> Couple H₂O₂(aq)/H₂O(l) — milieu acide</h5>
+      <div class="halfeq-row">
+        H₂O₂(aq) + <span class="dnd-blank" data-couple="h2o2" data-slot="a" data-answer="2"></span> H⁺(aq) + <span class="dnd-blank" data-couple="h2o2" data-slot="b" data-answer="2"></span> e⁻ ⇌ <span class="dnd-blank" data-couple="h2o2" data-slot="c" data-answer="2"></span> H₂O(l)
+      </div>
+      <div class="dnd-bank" data-couple="h2o2">
+        <div class="dnd-num" draggable="true" data-value="2">2</div>
+        <div class="dnd-num" draggable="true" data-value="2">2</div>
+        <div class="dnd-num" draggable="true" data-value="2">2</div>
+        <div class="dnd-num" draggable="true" data-value="1">1</div>
+        <div class="dnd-num" draggable="true" data-value="4">4</div>
+      </div>
+      <button class="dnd-btn" onclick="checkHalfEq('h2o2')">✓ Vérifier</button>
+      <button class="dnd-btn reset" onclick="resetHalfEq('h2o2')">↺ Réinitialiser</button>
+      <div class="dnd-feedback" id="fb-h2o2"></div>
+    </div>
+
+    <div class="halfeq-block">
+      <h5 class="halfeq-title"><span class="diff-badge d3">Niveau 3</span> Couple NO₃⁻(aq)/NO(g) — milieu acide</h5>
       <div class="halfeq-row">
         NO₃⁻(aq) + <span class="dnd-blank" data-couple="no3" data-slot="a" data-answer="4"></span> H⁺(aq) + <span class="dnd-blank" data-couple="no3" data-slot="b" data-answer="3"></span> e⁻ ⇌ NO(g) + <span class="dnd-blank" data-couple="no3" data-slot="c" data-answer="2"></span> H₂O(l)
       </div>
@@ -472,7 +599,7 @@ table.couples td{padding:8px;border:1px solid var(--gris-bord);vertical-align:mi
     </div>
 
     <div class="halfeq-block">
-      <h5 class="halfeq-title">Couple MnO₄⁻(aq)/Mn²⁺(aq) — milieu acide</h5>
+      <h5 class="halfeq-title"><span class="diff-badge d4">Niveau 4</span> MnO₄⁻(aq)/Mn²⁺(aq) — milieu acide</h5>
       <div class="halfeq-row">
         MnO₄⁻(aq) + <span class="dnd-blank" data-couple="mno4" data-slot="a" data-answer="8"></span> H⁺(aq) + <span class="dnd-blank" data-couple="mno4" data-slot="b" data-answer="5"></span> e⁻ ⇌ Mn²⁺(aq) + <span class="dnd-blank" data-couple="mno4" data-slot="c" data-answer="4"></span> H₂O(l)
       </div>
@@ -489,7 +616,7 @@ table.couples td{padding:8px;border:1px solid var(--gris-bord);vertical-align:mi
     </div>
 
     <div class="halfeq-block">
-      <h5 class="halfeq-title">Couple Cr₂O₇²⁻(aq)/Cr³⁺(aq) — milieu acide</h5>
+      <h5 class="halfeq-title"><span class="diff-badge d5">Niveau 5</span> Couple Cr₂O₇²⁻(aq)/Cr³⁺(aq) — milieu acide</h5>
       <div class="halfeq-row">
         Cr₂O₇²⁻(aq) + <span class="dnd-blank" data-couple="cr2o7" data-slot="a" data-answer="14"></span> H⁺(aq) + <span class="dnd-blank" data-couple="cr2o7" data-slot="b" data-answer="6"></span> e⁻ ⇌ <span class="dnd-blank" data-couple="cr2o7" data-slot="c" data-answer="2"></span> Cr³⁺(aq) + <span class="dnd-blank" data-couple="cr2o7" data-slot="d" data-answer="7"></span> H₂O(l)
       </div>
@@ -505,7 +632,7 @@ table.couples td{padding:8px;border:1px solid var(--gris-bord);vertical-align:mi
       <div class="dnd-feedback" id="fb-cr2o7"></div>
     </div>
 
-    <div class="remarque-box"><strong>Astuce :</strong> les couples MnO₄⁻/Mn²⁺ et Cr₂O₇²⁻/Cr³⁺ construits ici vous serviront directement dans l'onglet <strong>« Exercices »</strong> pour établir les équations-bilans complètes.</div>
+    <div class="remarque-box"><strong>Astuce :</strong> les couples MnO₄⁻/Mn²⁺ et Cr₂O₇²⁻/Cr³⁺ construits ici vous serviront directement dans l'onglet <strong>« Exercices »</strong> pour établir les équations-bilans complètes, aux côtés de trois autres couples.</div>
 
     <div class="section-title"><span class="icon">🔢</span>Jeu 2 — Remettre les étapes de la méthode dans l'ordre</div>
     <p style="font-size:.85rem;color:var(--texte-leger);margin-bottom:10px;">Glissez les étapes ci-dessous pour les remettre dans le bon ordre (de la demi-équation au bilan simplifié).</p>
@@ -531,40 +658,227 @@ table.couples td{padding:8px;border:1px solid var(--gris-bord);vertical-align:mi
 <!-- ══════════════════ TAB 3 — EXERCICES ══════════════════ -->
 <div class="panel" id="tab-exercices">
 
-  <div class="intro-box">Deux exercices interactifs pour s'entraîner à équilibrer des équations d'oxydo-réduction, en s'appuyant sur la méthode vue précédemment.</div>
+  <div class="intro-box">Cinq niveaux d'exercices, du plus simple au plus complexe. Pour chaque niveau, suivez les étapes de la fiche méthode : d'abord le nombre d'électrons échangés dans chaque demi-équation, puis l'équation-bilan complète.</div>
 
+  <!-- NIVEAU 1 -->
   <div class="exo-box">
-    <h5>Exercice 1 — Ions permanganate et acide oxalique</h5>
-    <div class="exo-enonce">
-      On fait réagir les ions permanganate MnO₄⁻(aq) (couple MnO₄⁻/Mn²⁺) avec l'acide oxalique H₂C₂O₄(aq) (couple CO₂/H₂C₂O₄), en milieu acide. Complétez les coefficients stœchiométriques de l'équation-bilan.
-    </div>
-    <div class="exo-eq">
-      <select id="ex1-a"><option value="">?</option><option value="2">2</option><option value="5">5</option><option value="1">1</option><option value="6">6</option></select> MnO₄⁻ +
-      <select id="ex1-b"><option value="">?</option><option value="2">2</option><option value="5">5</option><option value="1">1</option><option value="6">6</option></select> H₂C₂O₄ +
-      <select id="ex1-c"><option value="">?</option><option value="2">2</option><option value="6">6</option><option value="16">16</option><option value="1">1</option></select> H⁺ →
-      <select id="ex1-d"><option value="">?</option><option value="2">2</option><option value="5">5</option><option value="1">1</option><option value="10">10</option></select> Mn²⁺ +
-      <select id="ex1-e"><option value="">?</option><option value="2">2</option><option value="5">5</option><option value="10">10</option><option value="1">1</option></select> CO₂ +
-      <select id="ex1-f"><option value="">?</option><option value="2">2</option><option value="8">8</option><option value="16">16</option><option value="1">1</option></select> H₂O
-    </div>
-    <button class="exo-btn" onclick="checkExo1()">Vérifier</button>
-    <div class="exo-fb" id="exo1-fb"></div>
+    <h5><span class="diff-badge d1">Niveau 1</span>Ions argent et cuivre métallique</h5>
+    <div class="exo-enonce">On plonge un fil de cuivre Cu(s) dans une solution contenant des ions argent Ag⁺(aq) (couples Ag⁺(aq)/Ag(s) et Cu²⁺(aq)/Cu(s)).</div>
+    <ol class="methode-list">
+      <li>Nombre d'électrons échangés dans chaque demi-équation :
+        <div class="exo-eq" style="margin-top:8px;">
+          Ag⁺/Ag : n =
+          <select id="n1-a"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>
+          &nbsp;&nbsp; Cu²⁺/Cu : n =
+          <select id="n1-b"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>
+        </div>
+        <button class="exo-btn" onclick="checkSelectSet(['n1-a','n1-b'],['1','2'],'n1-fb')">Vérifier</button>
+        <div class="exo-fb" id="n1-fb"></div>
+      </li>
+      <li>Équation-bilan équilibrée :
+        <div class="exo-eq" style="margin-top:8px;">
+          <select id="ex1-a"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> Ag⁺ +
+          <select id="ex1-b"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> Cu →
+          <select id="ex1-c"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> Ag +
+          <select id="ex1-d"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> Cu²⁺
+        </div>
+        <button class="exo-btn" onclick="checkSelectSet(['ex1-a','ex1-b','ex1-c','ex1-d'],['2','1','2','1'],'exo1-fb')">Vérifier</button>
+        <div class="exo-fb" id="exo1-fb"></div>
+      </li>
+    </ol>
   </div>
 
+  <!-- NIVEAU 2 -->
   <div class="exo-box">
-    <h5>Exercice 2 — Ions dichromate et éthanol</h5>
-    <div class="exo-enonce">
-      On fait réagir les ions dichromate Cr₂O₇²⁻(aq) (couple Cr₂O₇²⁻/Cr³⁺) avec l'éthanol CH₃CH₂OH(aq) (couple CH₃CO₂H/CH₃CH₂OH), en milieu acide. Complétez les coefficients stœchiométriques.
+    <h5><span class="diff-badge d2">Niveau 2</span>Ions fer (III) et ions iodure</h5>
+    <div class="exo-enonce">On mélange une solution contenant des ions fer (III) Fe³⁺(aq) avec une solution contenant des ions iodure I⁻(aq) (couples Fe³⁺(aq)/Fe²⁺(aq) et I₂(aq)/I⁻(aq)).</div>
+    <ol class="methode-list">
+      <li>Nombre d'électrons échangés dans chaque demi-équation :
+        <div class="exo-eq" style="margin-top:8px;">
+          Fe³⁺/Fe²⁺ : n =
+          <select id="n2-a"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>
+          &nbsp;&nbsp; I₂/I⁻ : n =
+          <select id="n2-b"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>
+        </div>
+        <button class="exo-btn" onclick="checkSelectSet(['n2-a','n2-b'],['1','2'],'n2-fb')">Vérifier</button>
+        <div class="exo-fb" id="n2-fb"></div>
+      </li>
+      <li>Équation-bilan équilibrée :
+        <div class="exo-eq" style="margin-top:8px;">
+          <select id="ex2-a"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> Fe³⁺ +
+          <select id="ex2-b"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> I⁻ →
+          <select id="ex2-c"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> Fe²⁺ +
+          <select id="ex2-d"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> I₂
+        </div>
+        <button class="exo-btn" onclick="checkSelectSet(['ex2-a','ex2-b','ex2-c','ex2-d'],['2','2','2','1'],'exo2-fb')">Vérifier</button>
+        <div class="exo-fb" id="exo2-fb"></div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- NIVEAU 3 -->
+  <div class="exo-box">
+    <h5><span class="diff-badge d3">Niveau 3</span>Eau oxygénée et ions fer (II)</h5>
+    <div class="exo-enonce">On ajoute de l'eau oxygénée H₂O₂(aq) à une solution acidifiée contenant des ions fer (II) Fe²⁺(aq) (couples H₂O₂(aq)/H₂O(l) et Fe³⁺(aq)/Fe²⁺(aq)).</div>
+    <ol class="methode-list">
+      <li>Nombre d'électrons échangés dans chaque demi-équation :
+        <div class="exo-eq" style="margin-top:8px;">
+          H₂O₂/H₂O : n =
+          <select id="n3-a"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>
+          &nbsp;&nbsp; Fe³⁺/Fe²⁺ : n =
+          <select id="n3-b"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>
+        </div>
+        <button class="exo-btn" onclick="checkSelectSet(['n3-a','n3-b'],['2','1'],'n3-fb')">Vérifier</button>
+        <div class="exo-fb" id="n3-fb"></div>
+      </li>
+      <li>Équation-bilan équilibrée :
+        <div class="exo-eq" style="margin-top:8px;">
+          <select id="ex3-a"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> H₂O₂ +
+          <select id="ex3-b"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> H⁺ +
+          <select id="ex3-c"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> Fe²⁺ →
+          <select id="ex3-d"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> H₂O +
+          <select id="ex3-e"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> Fe³⁺
+        </div>
+        <button class="exo-btn" onclick="checkSelectSet(['ex3-a','ex3-b','ex3-c','ex3-d','ex3-e'],['1','2','2','2','2'],'exo3-fb')">Vérifier</button>
+        <div class="exo-fb" id="exo3-fb"></div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- NIVEAU 4 -->
+  <div class="exo-box">
+    <h5><span class="diff-badge d4">Niveau 4</span>Ions permanganate et acide oxalique</h5>
+    <div class="exo-enonce">On fait réagir les ions permanganate MnO₄⁻(aq) (couple MnO₄⁻/Mn²⁺) avec l'acide oxalique H₂C₂O₄(aq) (couple CO₂/H₂C₂O₄), en milieu acide.</div>
+    <ol class="methode-list">
+      <li>Nombre d'électrons échangés dans chaque demi-équation :
+        <div class="exo-eq" style="margin-top:8px;">
+          MnO₄⁻/Mn²⁺ : n =
+          <select id="n4-a"><option value="">?</option><option value="2">2</option><option value="5">5</option><option value="1">1</option></select>
+          &nbsp;&nbsp; CO₂/H₂C₂O₄ : n =
+          <select id="n4-b"><option value="">?</option><option value="2">2</option><option value="5">5</option><option value="1">1</option></select>
+        </div>
+        <button class="exo-btn" onclick="checkSelectSet(['n4-a','n4-b'],['5','2'],'n4-fb')">Vérifier</button>
+        <div class="exo-fb" id="n4-fb"></div>
+      </li>
+      <li>Équation-bilan équilibrée :
+        <div class="exo-eq" style="margin-top:8px;">
+          <select id="ex4-a"><option value="">?</option><option value="2">2</option><option value="5">5</option><option value="1">1</option><option value="6">6</option></select> MnO₄⁻ +
+          <select id="ex4-b"><option value="">?</option><option value="2">2</option><option value="5">5</option><option value="1">1</option><option value="6">6</option></select> H₂C₂O₄ +
+          <select id="ex4-c"><option value="">?</option><option value="2">2</option><option value="6">6</option><option value="16">16</option><option value="1">1</option></select> H⁺ →
+          <select id="ex4-d"><option value="">?</option><option value="2">2</option><option value="5">5</option><option value="1">1</option><option value="10">10</option></select> Mn²⁺ +
+          <select id="ex4-e"><option value="">?</option><option value="2">2</option><option value="5">5</option><option value="10">10</option><option value="1">1</option></select> CO₂ +
+          <select id="ex4-f"><option value="">?</option><option value="2">2</option><option value="8">8</option><option value="16">16</option><option value="1">1</option></select> H₂O
+        </div>
+        <button class="exo-btn" onclick="checkSelectSet(['ex4-a','ex4-b','ex4-c','ex4-d','ex4-e','ex4-f'],['2','5','6','2','10','8'],'exo4-fb')">Vérifier</button>
+        <div class="exo-fb" id="exo4-fb"></div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- NIVEAU 5 -->
+  <div class="exo-box">
+    <h5><span class="diff-badge d5">Niveau 5</span>Ions dichromate et éthanol</h5>
+    <div class="exo-enonce">On fait réagir les ions dichromate Cr₂O₇²⁻(aq) (couple Cr₂O₇²⁻/Cr³⁺) avec l'éthanol CH₃CH₂OH(aq) (couple CH₃CO₂H/CH₃CH₂OH), en milieu acide.</div>
+    <ol class="methode-list">
+      <li>Nombre d'électrons échangés dans chaque demi-équation :
+        <div class="exo-eq" style="margin-top:8px;">
+          Cr₂O₇²⁻/Cr³⁺ : n =
+          <select id="n5-a"><option value="">?</option><option value="2">2</option><option value="4">4</option><option value="6">6</option></select>
+          &nbsp;&nbsp; CH₃CO₂H/CH₃CH₂OH : n =
+          <select id="n5-b"><option value="">?</option><option value="2">2</option><option value="4">4</option><option value="6">6</option></select>
+        </div>
+        <button class="exo-btn" onclick="checkSelectSet(['n5-a','n5-b'],['6','4'],'n5-fb')">Vérifier</button>
+        <div class="exo-fb" id="n5-fb"></div>
+      </li>
+      <li>Équation-bilan équilibrée :
+        <div class="exo-eq" style="margin-top:8px;">
+          <select id="ex5-a"><option value="">?</option><option value="2">2</option><option value="3">3</option><option value="1">1</option><option value="4">4</option></select> Cr₂O₇²⁻ +
+          <select id="ex5-b"><option value="">?</option><option value="2">2</option><option value="3">3</option><option value="1">1</option></select> CH₃CH₂OH +
+          <select id="ex5-c"><option value="">?</option><option value="2">2</option><option value="8">8</option><option value="16">16</option></select> H⁺ →
+          <select id="ex5-d"><option value="">?</option><option value="2">2</option><option value="4">4</option><option value="1">1</option></select> Cr³⁺ +
+          <select id="ex5-e"><option value="">?</option><option value="2">2</option><option value="3">3</option><option value="1">1</option></select> CH₃CO₂H +
+          <select id="ex5-f"><option value="">?</option><option value="2">2</option><option value="8">8</option><option value="11">11</option></select> H₂O
+        </div>
+        <button class="exo-btn" onclick="checkSelectSet(['ex5-a','ex5-b','ex5-c','ex5-d','ex5-e','ex5-f'],['2','3','16','4','3','11'],'exo5-fb')">Vérifier</button>
+        <div class="exo-fb" id="exo5-fb"></div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="section-title"><span class="icon">🕵️</span>Escape Game — Le Coffre du Chimiste</div>
+
+  <div class="escape-wrap">
+    <div class="escape-story">
+      🔒 Le professeur a enfermé la clé du laboratoire dans un coffre à triple protection. Pour t'échapper, résous les <strong>3 épreuves</strong> dans l'ordre, à partir de l'observation suivante : <em>« Un ruban d'aluminium plongé dans une solution de sulfate de cuivre (II) se recouvre d'un dépôt rougeâtre, tandis que la coloration bleue de la solution s'atténue progressivement. »</em>
     </div>
-    <div class="exo-eq">
-      <select id="ex2-a"><option value="">?</option><option value="2">2</option><option value="3">3</option><option value="1">1</option><option value="4">4</option></select> Cr₂O₇²⁻ +
-      <select id="ex2-b"><option value="">?</option><option value="2">2</option><option value="3">3</option><option value="1">1</option></select> CH₃CH₂OH +
-      <select id="ex2-c"><option value="">?</option><option value="2">2</option><option value="8">8</option><option value="16">16</option></select> H⁺ →
-      <select id="ex2-d"><option value="">?</option><option value="2">2</option><option value="4">4</option><option value="1">1</option></select> Cr³⁺ +
-      <select id="ex2-e"><option value="">?</option><option value="2">2</option><option value="3">3</option><option value="1">1</option></select> CH₃CO₂H +
-      <select id="ex2-f"><option value="">?</option><option value="2">2</option><option value="8">8</option><option value="11">11</option></select> H₂O
+
+    <div class="escape-steps-nav">
+      <div class="escape-step-badge active" id="ebadge1">1 · 🔎 Identifier</div>
+      <div class="escape-step-badge" id="ebadge2">2 · 🔢 Digicode</div>
+      <div class="escape-step-badge" id="ebadge3">3 · 🔑 Couple mystère</div>
     </div>
-    <button class="exo-btn" onclick="checkExo2()">Vérifier</button>
-    <div class="exo-fb" id="exo2-fb"></div>
+
+    <!-- ÉTAPE 1 -->
+    <div class="escape-stage on" id="estage1">
+      <div class="escape-ctrl">
+        <button class="escape-btn a" onclick="escClue(1)">🔎 Observer le ruban</button>
+        <button class="escape-btn b" onclick="escClue(2)">🔎 Observer le dépôt</button>
+        <button class="escape-btn c" onclick="escClue(3)">🔎 Observer la solution</button>
+      </div>
+      <div class="escape-log" id="escLog">Il fait sombre dans le laboratoire. Choisis une observation pour commencer l'enquête…</div>
+      <div class="escape-guess">
+        <label style="color:#cfd6e6;font-weight:700;font-size:.84rem;">🔎 Quel est l'oxydant de cette transformation ?</label>
+        <select id="escGuess">
+          <option value="?">— choisir —</option>
+          <option value="al">Al(s)</option>
+          <option value="al3">Al³⁺(aq)</option>
+          <option value="cu">Cu(s)</option>
+          <option value="cu2">Cu²⁺(aq)</option>
+        </select>
+        <button onclick="escVerify1()">💡 Vérifier ma déduction</button>
+      </div>
+      <div class="escape-result" id="escResult1"></div>
+    </div>
+
+    <!-- ÉTAPE 2 -->
+    <div class="escape-stage" id="estage2">
+      <div class="escape-locked" id="estage2locked">🔒 Résous d'abord l'étape 1 pour débloquer le digicode.</div>
+      <div id="estage2content" style="display:none;">
+        <p style="color:#cfd6e6;font-size:.85rem;text-align:center;margin-bottom:10px;">Le digicode s'ouvre en complétant les coefficients de l'équation-bilan de la transformation observée.</p>
+        <div class="escape-eq">
+          <select id="ecode-a"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> Al(s) +
+          <select id="ecode-b"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> Cu²⁺(aq) →
+          <select id="ecode-c"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> Al³⁺(aq) +
+          <select id="ecode-d"><option value="">?</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select> Cu(s)
+        </div>
+        <div style="text-align:center;">
+          <button class="escape-validate-btn" onclick="escVerify2()">🔓 Entrer le digicode</button>
+        </div>
+        <div class="escape-result" id="escResult2"></div>
+      </div>
+    </div>
+
+    <!-- ÉTAPE 3 -->
+    <div class="escape-stage" id="estage3">
+      <div class="escape-locked" id="estage3locked">🔒 Résous d'abord l'étape 2 pour débloquer la serrure finale.</div>
+      <div id="estage3content" style="display:none;">
+        <p style="color:#cfd6e6;font-size:.85rem;text-align:center;margin-bottom:10px;">La serrure finale s'ouvre avec le couple oxydant/réducteur du métal qui a été <strong>oxydé</strong> dans cette transformation. Clique sur le bon couple.</p>
+        <div class="escape-comp-grid" id="escCoupleGrid">
+          <button class="escape-comp-btn" onclick="escVerify3('al', this)">Al³⁺(aq)/Al(s)</button>
+          <button class="escape-comp-btn" onclick="escVerify3('cu', this)">Cu²⁺(aq)/Cu(s)</button>
+          <button class="escape-comp-btn" onclick="escVerify3('fe', this)">Fe³⁺(aq)/Fe²⁺(aq)</button>
+          <button class="escape-comp-btn" onclick="escVerify3('mn', this)">MnO₄⁻(aq)/Mn²⁺(aq)</button>
+        </div>
+        <div class="escape-result" id="escResult3"></div>
+        <div class="escape-victory" id="escVictory">
+          <h3>🎉 Évasion réussie !</h3>
+          <p>Tu as résolu les 3 épreuves : Cu²⁺(aq) était l'oxydant, l'équation-bilan est 2 Al(s) + 3 Cu²⁺(aq) → 2 Al³⁺(aq) + 3 Cu(s), et le couple Al³⁺(aq)/Al(s) est celui du métal oxydé. Clique sur « Recommencer » pour rejouer.</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="escape-reset" onclick="escReset()">🔄 Recommencer l'énigme</button>
+    <div class="escape-score" id="escScore">Épreuves réussies : 0 / 3</div>
   </div>
 
 </div><!-- /tab-exercices -->
@@ -572,43 +886,76 @@ table.couples td{padding:8px;border:1px solid var(--gris-bord);vertical-align:mi
 <!-- ══════════════════ TAB 4 — BILAN & RESSOURCES ══════════════════ -->
 <div class="panel" id="tab-bilan">
 
-  <div class="bilan-grid">
-    <div class="bilan-card">
-      <h4>📖 Définitions clés</h4>
-      <ul class="ke-list">
-        <li>Oxydant = espèce qui capte des électrons</li>
-        <li>Réducteur = espèce qui cède des électrons</li>
-        <li>Oxydation = perte d'électrons (Red → Ox)</li>
-        <li>Réduction = gain d'électrons (Ox → Red)</li>
-        <li>Couple Ox/Red : Ox + n e⁻ = Red</li>
+  <nav class="sub-tabs-nav" id="sub-nav-bilan">
+    <button class="sub-tab-btn active" onclick="switchSubTab('bilan',0)">📋 Bilan</button>
+    <button class="sub-tab-btn" onclick="switchSubTab('bilan',1)">📖 Glossaire</button>
+    <button class="sub-tab-btn" onclick="switchSubTab('bilan',2)">🔗 Ressources</button>
+  </nav>
+
+  <div class="sub-tab-content active" id="bilan-sub-0">
+
+    <div class="bilan-grid">
+      <div class="bilan-card">
+        <h4>📖 Définitions clés</h4>
+        <ul class="ke-list">
+          <li>Oxydant = espèce qui capte des électrons</li>
+          <li>Réducteur = espèce qui cède des électrons</li>
+          <li>Oxydation = perte d'électrons (Red → Ox)</li>
+          <li>Réduction = gain d'électrons (Ox → Red)</li>
+          <li>Couple Ox/Red : Ox + n e⁻ = Red</li>
+        </ul>
+      </div>
+      <div class="bilan-card">
+        <h4>🧭 Méthode en 8 étapes</h4>
+        <ul class="ke-list">
+          <li>Placer Ox et Red de chaque côté</li>
+          <li>Conserver les éléments autres que O, H</li>
+          <li>Conserver O avec H₂O</li>
+          <li>Conserver H avec H⁺</li>
+          <li>Conserver la charge avec e⁻</li>
+          <li>Équilibrer les électrons échangés</li>
+          <li>Additionner les deux demi-équations</li>
+          <li>Simplifier le bilan final</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon" style="background:var(--gris-fond);color:var(--texte-leger);">📚</span>Exercices du manuel</div>
+      <p style="font-size:.85rem;">En autonomie : tous les exercices du chapitre 2 corrigés dans le manuel.<br>En classe : p49, p50 n°18, p51 n°29, p55 n°46.</p>
+    </div>
+
+  </div><!-- /bilan-sub-0 -->
+
+  <div class="sub-tab-content" id="bilan-sub-1">
+    <div class="section-title"><span class="icon">📖</span>Glossaire</div>
+    <input type="text" class="gloss-search" id="glossSearch" placeholder="🔎 Rechercher un mot du glossaire…" oninput="glossFilter()">
+    <dl class="gloss-grid" id="glossGrid">
+      <div class="gloss-item" data-term="oxydant"><dt>Oxydant</dt><dd>Espèce chimique capable de capter (gagner) un ou plusieurs électrons.</dd></div>
+      <div class="gloss-item" data-term="reducteur réducteur"><dt>Réducteur</dt><dd>Espèce chimique capable de céder (perdre) un ou plusieurs électrons.</dd></div>
+      <div class="gloss-item" data-term="oxydation"><dt>Oxydation</dt><dd>Transformation au cours de laquelle un réducteur cède des électrons et se transforme en oxydant.</dd></div>
+      <div class="gloss-item" data-term="reduction réduction"><dt>Réduction</dt><dd>Transformation au cours de laquelle un oxydant capte des électrons et se transforme en réducteur.</dd></div>
+      <div class="gloss-item" data-term="couple oxydant reducteur"><dt>Couple oxydant/réducteur</dt><dd>Ensemble de deux espèces conjuguées, notées Ox/Red, qui se transforment l'une en l'autre par gain ou perte d'électrons.</dd></div>
+      <div class="gloss-item" data-term="demi-equation electronique demi équation"><dt>Demi-équation électronique</dt><dd>Écriture symbolique associée à un couple Ox/Red, de la forme Ox + n e⁻ = Red.</dd></div>
+      <div class="gloss-item" data-term="transfert d'electrons electron"><dt>Transfert d'électrons</dt><dd>Échange d'un ou plusieurs électrons entre l'oxydant d'un couple et le réducteur d'un autre couple, à l'origine d'une réaction d'oxydo-réduction.</dd></div>
+      <div class="gloss-item" data-term="electron e-"><dt>Électron (e⁻)</dt><dd>Particule chargée négativement échangée lors d'une réaction d'oxydo-réduction. Elle n'existe pas à l'état libre en solution aqueuse.</dd></div>
+      <div class="gloss-item" data-term="milieu acide proton h+"><dt>Milieu acide</dt><dd>Milieu réactionnel contenant des ions H⁺(aq) en excès, utilisés pour équilibrer l'élément hydrogène dans une demi-équation.</dd></div>
+      <div class="gloss-item" data-term="equation bilan équation-bilan"><dt>Équation-bilan</dt><dd>Équation de la réaction d'oxydo-réduction, obtenue en additionnant les deux demi-équations électroniques après avoir équilibré le nombre d'électrons échangés.</dd></div>
+      <div class="gloss-item" data-term="reactif limitant réactif"><dt>Réactif limitant</dt><dd>Réactif entièrement consommé le premier au cours d'une transformation chimique, qui arrête l'avancement de la réaction.</dd></div>
+      <div class="gloss-item" data-term="coefficient stœchiométrique stoechiometrique"><dt>Coefficient stœchiométrique</dt><dd>Nombre placé devant une espèce chimique dans une équation, permettant d'assurer la conservation des éléments et de la charge.</dd></div>
+      <div class="gloss-item" data-term="conservation de la matiere charge"><dt>Conservation de la matière et de la charge</dt><dd>Principe selon lequel, dans une équation chimique équilibrée, chaque élément et la charge électrique totale se retrouvent à l'identique de part et d'autre de l'équation.</dd></div>
+      <div class="gloss-item" data-term="espece chimique espèce"><dt>Espèce chimique</dt><dd>Entité chimique (atome, ion ou molécule) caractérisée par sa formule, pouvant intervenir comme réactif ou produit dans une transformation.</dd></div>
+    </dl>
+  </div><!-- /bilan-sub-1 -->
+
+  <div class="sub-tab-content" id="bilan-sub-2">
+    <div class="card">
+      <div class="card-title"><span class="icon" style="background:var(--bleu-clair);color:var(--bleu);">🔗</span>Ressources complémentaires</div>
+      <ul class="res-list">
+        <li><a href="https://www.pccl.fr/physique_chimie_college_lycee/lycee/premiere_1S/ajusterRedox_flash.htm" target="_blank">⚙️ Exercice d'ajustement des équations redox (PCCL)</a></li>
       </ul>
     </div>
-    <div class="bilan-card">
-      <h4>🧭 Méthode en 8 étapes</h4>
-      <ul class="ke-list">
-        <li>Placer Ox et Red de chaque côté</li>
-        <li>Conserver les éléments autres que O, H</li>
-        <li>Conserver O avec H₂O</li>
-        <li>Conserver H avec H⁺</li>
-        <li>Conserver la charge avec e⁻</li>
-        <li>Équilibrer les électrons échangés</li>
-        <li>Additionner les deux demi-équations</li>
-        <li>Simplifier le bilan final</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><span class="icon" style="background:var(--gris-fond);color:var(--texte-leger);">📚</span>Exercices du manuel</div>
-    <p style="font-size:.85rem;">En autonomie : tous les exercices du chapitre 2 corrigés dans le manuel.<br>En classe : p49, p50 n°18, p51 n°29, p55 n°46.</p>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><span class="icon" style="background:var(--bleu-clair);color:var(--bleu);">🔗</span>Ressources complémentaires</div>
-    <ul class="res-list">
-      <li><a href="https://www.pccl.fr/physique_chimie_college_lycee/lycee/premiere_1S/ajusterRedox_flash.htm" target="_blank">⚙️ Exercice d'ajustement des équations redox (PCCL)</a></li>
-    </ul>
-  </div>
+  </div><!-- /bilan-sub-2 -->
 
 </div><!-- /tab-bilan -->
 
@@ -632,6 +979,153 @@ function switchSubTab(group, idx){
   var contents = document.querySelectorAll('[id^="'+group+'-sub-"]');
   btns.forEach(function(b,i){ b.classList.toggle('active', i===idx); });
   contents.forEach(function(c,i){ c.classList.toggle('active', i===idx); });
+}
+
+/* === Activité : classer les oxydants et les réducteurs (drag tactile) === */
+const OXYRED_BADGES = [
+  { id: 'cu2',  label: 'Cu²⁺(aq)',   color: '#C0392B', bg: '#FDEDEC', cat: 'ox'  },
+  { id: 'fe3',  label: 'Fe³⁺(aq)',   color: '#C0392B', bg: '#FDEDEC', cat: 'ox'  },
+  { id: 'ag1',  label: 'Ag⁺(aq)',    color: '#C0392B', bg: '#FDEDEC', cat: 'ox'  },
+  { id: 'mno4', label: 'MnO₄⁻(aq)',  color: '#C0392B', bg: '#FDEDEC', cat: 'ox'  },
+  { id: 'fe2',  label: 'Fe²⁺(aq)',   color: '#2D5F8A', bg: '#E8F1F8', cat: 'red' },
+  { id: 'zn',   label: 'Zn(s)',      color: '#2D5F8A', bg: '#E8F1F8', cat: 'red' },
+  { id: 'i',    label: 'I⁻(aq)',     color: '#2D5F8A', bg: '#E8F1F8', cat: 'red' },
+  { id: 'cu',   label: 'Cu(s)',      color: '#2D5F8A', bg: '#E8F1F8', cat: 'red' },
+];
+
+let orDragId = null, orGhost = null, orSource = null;
+
+function buildOxyredPool(){
+  const pool = document.getElementById('drag-pool-oxyred');
+  if(!pool) return;
+  pool.innerHTML = '';
+  OXYRED_BADGES.forEach(b => pool.appendChild(makeOrBadge(b, 'drag-pool-oxyred')));
+}
+
+function makeOrBadge(b, sourceId){
+  const el = document.createElement('span');
+  el.className = 'drag-badge';
+  el.dataset.id = b.id;
+  el.dataset.source = sourceId;
+  el.style.cssText = 'background:'+b.bg+';border-color:'+b.color+';color:'+b.color+';';
+  el.textContent = b.label;
+  el.addEventListener('mousedown', orStartDrag);
+  el.addEventListener('touchstart', orStartDrag, {passive:false});
+  return el;
+}
+
+function orStartDrag(e){
+  e.preventDefault();
+  const badge = e.currentTarget;
+  orDragId = badge.dataset.id;
+  orSource = badge.dataset.source;
+  const bData = OXYRED_BADGES.find(b => b.id === orDragId);
+
+  orGhost = document.createElement('span');
+  orGhost.className = 'drag-badge';
+  orGhost.style.cssText = 'position:fixed;pointer-events:none;z-index:9999;opacity:.88;transform:translate(-50%,-50%);background:'+bData.bg+';border:2px solid '+bData.color+';color:'+bData.color+';';
+  orGhost.textContent = bData.label;
+  document.body.appendChild(orGhost);
+  orMoveGhost(e);
+
+  badge.style.opacity = '.35';
+  badge.dataset.dragging = '1';
+
+  document.addEventListener('mousemove', orMoveGhost);
+  document.addEventListener('mouseup', orEndDrag);
+  document.addEventListener('touchmove', orMoveGhost, {passive:false});
+  document.addEventListener('touchend', orEndDrag);
+
+  document.querySelectorAll('.drop-zone').forEach(z => z.classList.add('drag-over'));
+}
+
+function orMoveGhost(e){
+  if(!orGhost) return;
+  const pt = e.touches ? e.touches[0] : e;
+  orGhost.style.left = pt.clientX + 'px';
+  orGhost.style.top = pt.clientY + 'px';
+}
+
+function orEndDrag(e){
+  document.removeEventListener('mousemove', orMoveGhost);
+  document.removeEventListener('mouseup', orEndDrag);
+  document.removeEventListener('touchmove', orMoveGhost);
+  document.removeEventListener('touchend', orEndDrag);
+  document.querySelectorAll('.drop-zone').forEach(z => z.classList.remove('drag-over'));
+
+  if(orGhost){ orGhost.remove(); orGhost = null; }
+  const orig = document.querySelector('.drag-badge[data-id="'+orDragId+'"][data-dragging="1"]');
+
+  const pt = e.changedTouches ? e.changedTouches[0] : e;
+  const zones = ['drop-oxyred-ox','drop-oxyred-red','drag-pool-oxyred'];
+  let targetZone = null;
+  for(const zid of zones){
+    const el = document.getElementById(zid);
+    if(!el) continue;
+    const r = el.getBoundingClientRect();
+    if(pt.clientX >= r.left && pt.clientX <= r.right && pt.clientY >= r.top && pt.clientY <= r.bottom){
+      targetZone = zid;
+      break;
+    }
+  }
+
+  const bData = OXYRED_BADGES.find(b => b.id === orDragId);
+  if(targetZone && targetZone !== orSource){
+    if(orig) orig.remove();
+    const zoneEl = document.getElementById(targetZone);
+    const ph = zoneEl.querySelector('.drop-zone-placeholder');
+    if(ph) ph.style.display = 'none';
+    zoneEl.appendChild(makeOrBadge(bData, targetZone));
+  } else {
+    if(orig){ orig.style.opacity = '1'; delete orig.dataset.dragging; }
+  }
+  orDragId = null; orSource = null;
+}
+
+function verifierOxyred(){
+  ['ox','red'].forEach(cat => {
+    const zone = document.getElementById('drop-oxyred-' + cat);
+    const fb = document.getElementById('fb-' + cat);
+    const placed = [...zone.querySelectorAll('.drag-badge')].map(b => b.dataset.id);
+    const correct = OXYRED_BADGES.filter(b => b.cat === cat).map(b => b.id);
+    const isOk = correct.every(c => placed.includes(c)) && placed.every(p => correct.includes(p));
+    zone.classList.remove('drop-ok','drop-ko');
+    zone.classList.add(isOk ? 'drop-ok' : 'drop-ko');
+    if(isOk){
+      fb.textContent = '✓ Correct !'; fb.className = 'dq-feedback';
+    } else {
+      const manq = correct.filter(c => !placed.includes(c)).map(c => OXYRED_BADGES.find(b=>b.id===c).label);
+      const trop = placed.filter(p => !correct.includes(p)).map(p => (OXYRED_BADGES.find(b=>b.id===p)||{}).label || p);
+      let msg = '✗ ';
+      if(manq.length) msg += 'Manque : ' + manq.join(', ') + '. ';
+      if(trop.length) msg += 'En trop : ' + trop.join(', ') + '.';
+      fb.textContent = msg; fb.className = 'dq-feedback wrong';
+    }
+  });
+}
+
+function corrigerOxyred(){
+  ['ox','red'].forEach(cat => {
+    const zone = document.getElementById('drop-oxyred-' + cat);
+    zone.innerHTML = '';
+    zone.classList.remove('drop-ok','drop-ko');
+    zone.classList.add('drop-ok');
+    OXYRED_BADGES.filter(b => b.cat === cat).forEach(b => zone.appendChild(makeOrBadge(b, 'drop-oxyred-' + cat)));
+    document.getElementById('fb-' + cat).textContent = '✓ Correction affichée.';
+    document.getElementById('fb-' + cat).className = 'dq-feedback';
+  });
+  const pool = document.getElementById('drag-pool-oxyred');
+  if(pool) pool.innerHTML = '';
+}
+buildOxyredPool();
+
+/* === Glossaire === */
+function glossFilter(){
+  var q = document.getElementById('glossSearch').value.trim().toLowerCase();
+  document.querySelectorAll('#glossGrid .gloss-item').forEach(function(item){
+    var term = item.getAttribute('data-term') + ' ' + item.textContent.toLowerCase();
+    item.style.display = term.indexOf(q) !== -1 ? '' : 'none';
+  });
 }
 
 /* === Jeu 1 : construire la demi-équation en glissant les coefficients === */
@@ -797,7 +1291,7 @@ function shuffleReorder(){
 }
 shuffleReorder();
 
-/* === Exercices : vérification des coefficients === */
+/* === Exercices : vérification des coefficients (utilisée par tous les niveaux) === */
 function checkSelectSet(ids, answers, fbId){
   var fb = document.getElementById(fbId);
   var vals = ids.map(function(id){ return document.getElementById(id).value; });
@@ -809,21 +1303,110 @@ function checkSelectSet(ids, answers, fbId){
   var ok = vals.every(function(v, i){ return v === answers[i]; });
   if(ok){
     fb.className = 'exo-fb ok';
-    fb.textContent = '✓ Équation correctement équilibrée !';
+    fb.textContent = '✓ Correct !';
   } else {
     fb.className = 'exo-fb ko';
     fb.textContent = '✗ Ce n\'est pas encore correct. Reprenez la méthode en 8 étapes (onglet Méthode & TD) : équilibrez d\'abord chaque demi-équation séparément.';
   }
 }
 
-function checkExo1(){
-  checkSelectSet(['ex1-a','ex1-b','ex1-c','ex1-d','ex1-e','ex1-f'],
-                 ['2','5','16','2','10','8'], 'exo1-fb');
+/* === Escape Game — Le Coffre du Chimiste === */
+var escState = { s1:false, s2:false, s3:false };
+
+function escLogAppend(msg){
+  var log = document.getElementById('escLog');
+  log.innerHTML += '<br>' + msg;
 }
-function checkExo2(){
-  checkSelectSet(['ex2-a','ex2-b','ex2-c','ex2-d','ex2-e','ex2-f'],
-                 ['2','3','16','4','3','11'], 'exo2-fb');
+
+function escClue(n){
+  if(n === 1) escLogAppend('<b>Ruban :</b> le ruban d\'aluminium métallique Al(s) disparaît peu à peu : il est consommé au cours de la réaction.');
+  if(n === 2) escLogAppend('<b>Dépôt :</b> un dépôt métallique rougeâtre se forme peu à peu : il s\'agit de cuivre Cu(s).');
+  if(n === 3) escLogAppend('<b>Solution :</b> la coloration bleue, due aux ions Cu²⁺(aq), s\'atténue progressivement : ces ions disparaissent.');
 }
+
+function escSetBadges(){
+  document.getElementById('ebadge1').className = 'escape-step-badge' + (escState.s1 ? ' done' : ' active');
+  document.getElementById('ebadge2').className = 'escape-step-badge' + (escState.s2 ? ' done' : (escState.s1 ? ' active' : ''));
+  document.getElementById('ebadge3').className = 'escape-step-badge' + (escState.s3 ? ' done' : (escState.s2 ? ' active' : ''));
+  document.getElementById('escScore').textContent = 'Épreuves réussies : ' + [escState.s1,escState.s2,escState.s3].filter(Boolean).length + ' / 3';
+}
+
+function escVerify1(){
+  var v = document.getElementById('escGuess').value;
+  var res = document.getElementById('escResult1');
+  if(v === '?'){ res.className='escape-result'; res.textContent='Choisis une réponse avant de vérifier.'; return; }
+  if(v === 'cu2'){
+    res.className = 'escape-result win';
+    res.textContent = '✓ Exact ! Cu²⁺(aq) capte des électrons pour former Cu(s) : c\'est l\'oxydant.';
+    escState.s1 = true;
+    document.getElementById('estage2locked').style.display = 'none';
+    document.getElementById('estage2content').style.display = 'block';
+  } else {
+    res.className = 'escape-result lose';
+    res.textContent = '✗ Ce n\'est pas ça. Relis les indices : quelle espèce capte des électrons ?';
+  }
+  escSetBadges();
+}
+
+function escVerify2(){
+  var ids = ['ecode-a','ecode-b','ecode-c','ecode-d'];
+  var answers = ['2','3','2','3'];
+  var vals = ids.map(function(id){ return document.getElementById(id).value; });
+  var res = document.getElementById('escResult2');
+  if(vals.some(function(v){ return v === ''; })){
+    res.className = 'escape-result'; res.textContent = 'Complète tous les coefficients avant d\'entrer le digicode.'; return;
+  }
+  var ok = vals.every(function(v,i){ return v === answers[i]; });
+  if(ok){
+    res.className = 'escape-result win';
+    res.textContent = '✓ Digicode accepté : 2 Al(s) + 3 Cu²⁺(aq) → 2 Al³⁺(aq) + 3 Cu(s).';
+    escState.s2 = true;
+    document.getElementById('estage3locked').style.display = 'none';
+    document.getElementById('estage3content').style.display = 'block';
+  } else {
+    res.className = 'escape-result lose';
+    res.textContent = '✗ Digicode refusé. Vérifie la conservation des éléments et de la charge.';
+  }
+  escSetBadges();
+}
+
+function escVerify3(id, btn){
+  var res = document.getElementById('escResult3');
+  document.querySelectorAll('#escCoupleGrid .escape-comp-btn').forEach(function(b){ b.classList.remove('ok','ko'); });
+  if(id === 'al'){
+    btn.classList.add('ok');
+    res.className = 'escape-result win';
+    res.textContent = '✓ Le coffre s\'ouvre !';
+    escState.s3 = true;
+    document.getElementById('escVictory').classList.add('show');
+  } else {
+    btn.classList.add('ko');
+    res.className = 'escape-result lose';
+    res.textContent = '✗ Ce n\'est pas le couple du métal oxydé. Réessaie.';
+  }
+  escSetBadges();
+}
+
+function escReset(){
+  escState = { s1:false, s2:false, s3:false };
+  document.getElementById('escLog').innerHTML = 'Il fait sombre dans le laboratoire. Choisis une observation pour commencer l\'enquête…';
+  document.getElementById('escGuess').value = '?';
+  document.getElementById('escResult1').textContent = '';
+  document.getElementById('escResult1').className = 'escape-result';
+  ['ecode-a','ecode-b','ecode-c','ecode-d'].forEach(function(id){ document.getElementById(id).value = ''; });
+  document.getElementById('estage2locked').style.display = 'block';
+  document.getElementById('estage2content').style.display = 'none';
+  document.getElementById('estage3locked').style.display = 'block';
+  document.getElementById('estage3content').style.display = 'none';
+  document.getElementById('escResult2').textContent = '';
+  document.getElementById('escResult2').className = 'escape-result';
+  document.getElementById('escResult3').textContent = '';
+  document.getElementById('escResult3').className = 'escape-result';
+  document.querySelectorAll('#escCoupleGrid .escape-comp-btn').forEach(function(b){ b.classList.remove('ok','ko'); });
+  document.getElementById('escVictory').classList.remove('show');
+  escSetBadges();
+}
+escSetBadges();
 </script>
 
 </body>
